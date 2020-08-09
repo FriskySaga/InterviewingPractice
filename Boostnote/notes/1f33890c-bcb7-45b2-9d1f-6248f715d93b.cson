@@ -1,0 +1,32 @@
+createdAt: "2019-10-18T23:41:31.007Z"
+updatedAt: "2019-10-20T15:54:16.742Z"
+type: "MARKDOWN_NOTE"
+folder: "d8a6d472cbf5921b022f"
+title: "Behavorial questions"
+tags: [
+  "todo"
+]
+content: '''
+  ### Behavorial questions
+  1. Strengths
+  2. Weaknesses
+  3. Describe a bug
+  4. Conflict resolution
+  
+  ### Resources
+  1. CodeSignal
+  2. CodeWars
+  3. LeetCode
+  4. HackerRank
+  5. Codecademy
+  6. EdX
+  7. Coursera
+  8. Udacity
+  9. Udemy
+  10. TED-Ed Riddles
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

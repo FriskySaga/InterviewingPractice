@@ -1,0 +1,30 @@
+createdAt: "2019-10-21T01:43:44.081Z"
+updatedAt: "2019-10-21T02:49:15.366Z"
+type: "SNIPPET_NOTE"
+folder: "d8a6d472cbf5921b022f"
+title: "Object-oriented Programming"
+tags: [
+  "c++"
+]
+description: "Object-oriented Programming"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "polymorphism.cpp"
+    mode: "C++"
+    content: '''
+      // Polymorphism is basically a bunch of subclasses inherited from one main base class,
+      // but all the subclasses do something different from each other.
+      // For example, all our service classes inherit from a ServiceBase class.
+      
+      // A virtual member is a member function that can be *redefined* in a derived class.
+      
+      // Abstract base classes cannot be instantiated.
+      // A class is an abstract base class when it has at least one pure virtual function.
+      // Pure virtual functions have no definitions. In C++, they look like this
+      virtual size_t getPerimeter() = 0;
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

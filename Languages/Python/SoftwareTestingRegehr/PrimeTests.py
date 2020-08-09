@@ -1,0 +1,66 @@
+'''
+    Kevin Tran
+    November 5, 2018
+
+    Most of this code is taken from the Udacity course, Software Testing, taught
+    by Dr. John Regehr, who is a Professor at the University of Utah.
+
+    This code includes a buggy isPrime() function that I need to correct in the
+    isPrime2() function. The test() function includes an extra line of code from
+    me to determine a test case in which isPrime() returns the incorrect result.
+'''
+
+# CORRECT SPECIFICATION:
+#
+# isPrime checks if a positive integer is prime.
+#
+# A positive integer is prime if it is greater than 
+# 1, and its only divisors are 1 and itself.
+#
+# TASKS:
+#
+# 1) Add an assertion to test() that shows
+#    isPrime(number) to be incorrect for 
+#    some input.
+#
+# 2) Write isPrime2(number) to correctly 
+#    check if a positive integer is prime.
+
+import math
+
+def isPrime(number):
+    if number == 2:
+        return True
+    if number<=1 or (number%2)==0:
+        return False
+    for check in range(3,int(math.sqrt(number))):  
+        if (number%check) == 0:  
+            return False
+    return True
+
+def isPrime2(number):  
+    ###Your isPrime2 code here.
+    if number == 2:
+        return True
+    if number <= 1 or (number % 2) == 0:
+        return False
+    for check in range(3, int(math.sqrt(number)) + 1):
+        if (number % check) == 0:
+            return False
+    pass
+
+def test():
+    assert isPrime(1) == False
+    assert isPrime(2) == True
+    assert isPrime(3) == True
+    assert isPrime(4) == False
+    assert isPrime(5) == True
+    assert isPrime(20) == False
+    assert isPrime(21) == False
+    assert isPrime(22) == False
+    assert isPrime(23) == True
+    assert isPrime(24) == False
+    ###Your test code here.
+    assert isPrime(25) == False
+    pass
+

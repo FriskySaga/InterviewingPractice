@@ -1,0 +1,34 @@
+createdAt: "2019-10-19T00:00:57.206Z"
+updatedAt: "2019-10-20T00:02:02.554Z"
+type: "MARKDOWN_NOTE"
+folder: "d8a6d472cbf5921b022f"
+title: "Why are you leaving testing?"
+tags: [
+  "behavorial"
+]
+content: '''
+  #### Why are you leaving testing?
+  I really like testing, and I think our new process works really well. But I want to go software partially because I can bring my background in testing to give me a leg up when developing software.
+  
+  #### Why do you want to do software?
+  I've already explored a lot of the testing world, so now I want to explore the software world, especially before I forget what I learned in college. I mean, I haven't done rigorous C programming in 2 years, and Java in 2.5 years. My Python is better than ever, but I've never done actual professional software development. When I interned at Lockheed, I was a metrics intern using VBA. Here at Northrop, I was writing Python test scripts.
+  
+  #### Why are you leaving AP?
+  So, I'm always going to gravitate towards the better team which is CMSW. But another reason is that I dislike the work over there; for the most part, they re-run what COMSA gives them, and complain when it's broken, which is usually an adaptation issue rather than a COMSA issue. We don't write any new test scripts for any new requirements either. In fact, there have been multiple instances of people on my team spending half a day to investigate a requirement that has already been deleted on COMSA for example. Also, the environment over there is pretty bad, they don't have enough RAM on their linux VMs, so they run on Windows instead of Linux, which is actually slower. They also don't have Bamboo, so it's very hard to keep track of which requirements are bad and which are good. Furthermore, I feel like that team is very fixated on the past... and since I joined the team in July, I am the 4th person to leave so there are other issues too.
+  So, I'm always going to lean towards the better program, the better team. I really think COMSA, and in particular, CMSW, since I don't know the rest of COMSA... I think CMSW is a freaking great team, and I've seen that first hand not only from the testing side, but also from the software side when I went to the Fusion scrums. I really like how we actually use Bamboo to check our nightly builds. I'm a big fan of developing test scripts from scratch rather than re-running what COMSA gives you on a different environment.
+  
+  #### Why are you joining COMSA?
+  Again, I'm really interested in joining the better team, especially one that makes me happier to come to work.
+  
+  #### Why is your GPA so low?
+  Well, I was a slacker in college, honestly. There were some assignments that I skipped because I was more interested in gaming or reading up on other stuff to learn more about the world. Also, as a first generation student, I really didn't know how any of what I learned... how what I learned would be used. When I first interned at Lockheed, despite having less hours to study, my grades actually went up. I was more motivated, I had more confidence, and I had role models to look up to. I learned that the world was much bigger than I had thought; in college, I always had the feeling that some of my peers felt like they knew it all, or if they didn't, they had to become a hotshot rockstar coder before graduating. But then I realized that was a pretty immature way of thinking because we always have to keep learning in our profession, even after we graduate.
+'''
+linesHighlighted: [
+  2
+  6
+  10
+  11
+]
+isStarred: false
+isTrashed: false
+isPinned: true

@@ -1,0 +1,17 @@
+createdAt: "2019-10-18T23:40:19.903Z"
+updatedAt: "2019-10-18T23:40:43.333Z"
+type: "SNIPPET_NOTE"
+folder: "d8a6d472cbf5921b022f"
+title: ""
+tags: []
+description: ""
+snippets: [
+  {
+    name: ""
+    mode: "C++"
+    content: ""
+    linesHighlighted: []
+  }
+]
+isStarred: false
+isTrashed: true

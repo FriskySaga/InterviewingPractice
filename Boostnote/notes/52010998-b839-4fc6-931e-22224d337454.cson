@@ -1,0 +1,99 @@
+createdAt: "2019-10-18T23:40:45.321Z"
+updatedAt: "2020-06-27T18:10:10.660Z"
+type: "SNIPPET_NOTE"
+folder: "d8a6d472cbf5921b022f"
+title: "What are pointers?"
+tags: [
+  "c++"
+]
+description: "What are pointers?"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "pointer.cpp"
+    mode: "C++"
+    content: '''
+      // Pointers are variables that store the address of another variable
+      // & is a address-of operator which will retrieve the address of a variable
+      // * is a dereference operator which will access the value pointed to by the address
+      // [] is a dereference operator known as "offset operator"
+      // -> is a dereference operator that is used exclusively with pointers to objects that have members
+      int a[20];
+      int *p;
+      
+      // This operation is valid
+      p = a;
+      
+      // This operation is invalid because p can be assigned a different address
+      // but a can never be assigned another address, and will always represent the
+      // same block of 20 elements of type int. Therefore, the following assignment is invalid
+      a = p;
+      
+      // These two expressions are equivalent and valid, not only if a is a pointer, but also if a is an array
+      a[5]   = 0; // a [offset of 5]    = 0
+      *(a+5) = 0; // pointed to by (a+5) = 0
+      
+      // Example A
+      int myVar  = 5;
+      int *myPtr = &myVar; // save address of myVar
+      
+      // This is different from Example A because the pointer was initialized to save the address of myVar
+      // rather than being dereferenced to store the address (int *) type as shown below
+      int myVar;
+      int *myPtr;
+      *myPtr = &myVar;
+      
+      *p++;   // same as *(p++): increment pointer, and dereference unincremented address
+      *++p;   // same as *(++p): increment pointer, and dereference incremented address
+      ++*p;   // same as ++(*p): dereference pointer, and increment the value it points to
+      (*p)++; // dereference pointer, and post-increment the value it points to 
+      
+      // Pointers can be used to access a variable by its address, and this access may include modifying the value pointed.
+      // But it is also possible to declare pointers that can access the pointed value to read it, but not to modify it.
+      // For this, it is enough with qualifying the type pointed to by the pointer as const. For example:
+      int x;
+      int y = 10;
+      const int *p = &y;
+      x = *p;   // reading p is okay
+      *p = x;   // error: modifying p, which is const-qualified
+      
+      // Allocate dynamic memory using the operator 'new'
+      int *foo;
+      foo = new int [5];
+      
+      // This won't add on another 10 indices for a total of 15
+      foo = new int[10];
+      
+      // If the allocation of this block of memory fails, foo will be assigned to NULL instead of throwing a bad_alloc exception
+      foo = new (nothrow) int [5];
+      
+      // Release memory for arrays allocated using new
+      delete foo;
+      
+      // Release memory for arrays allocated using new or []
+      delete [] foo;
+      
+    '''
+  }
+  {
+    linesHighlighted: []
+    name: "struct.cpp"
+    mode: "C++"
+    content: '''
+      // Structs
+      struct movies_t {
+        std::string title;
+        int year;
+      };
+      
+      movies_t amovie;
+      movies_t *pmovie;
+      pmovie = &amovie;
+      getline(std::cin, pmovie->title);
+      getline(std::cin, (*pmovie).title); // equivalent to line above
+      
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- Get the side dishes, otherwise get the main dishes. -->
+<meals>
+    <breakfast>
+        <main>
+            <dish>cereal</dish>
+                <brand>Froot Loops</brand>
+                <milk>white</milk>
+            <portion>medium</portion>
+        </main>
+    </breakfast>
+    <lunch>
+        <main>
+            <dish>rice</dish>
+                <topping>bourbon chicken</topping>
+                <topping>stir fry vegetables</topping>
+            <portion>large</portion>
+        </main>
+        <side>
+            <dish>crab rangoon</dish>
+            <quantity>2</quantity>
+        </side>
+    </lunch>
+    <dinner>
+        <main>
+            <dish>prime rib</dish>
+        </main>
+        <side>
+            <dish>mashed potatoes</dish>
+                <topping>gravy</topping>
+            <portion>small</portion>
+        </side>
+        <side>
+            <dish>green beans</dish>
+            <portion>small</portion>
+        </side>
+    </dinner>
+</meals>

@@ -1,0 +1,7 @@
+# Ignore executables
+a.out
+a.exe
+
+# Ignore precompiled headers
+DSA.h.gch
+

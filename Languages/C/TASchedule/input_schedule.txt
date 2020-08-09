@@ -1,0 +1,7 @@
+6
+Sam    Monday    16 18
+Sameer Monday    12 13
+Tuan   Tuesday   11 12
+Yunus  Thursday  14 16
+Shiva  Thursday  11 13
+Kevin  Wednesday 19 23

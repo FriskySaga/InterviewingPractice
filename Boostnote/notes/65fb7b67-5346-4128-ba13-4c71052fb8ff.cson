@@ -1,0 +1,26 @@
+createdAt: "2019-10-20T16:10:54.225Z"
+updatedAt: "2019-10-20T16:21:41.986Z"
+type: "MARKDOWN_NOTE"
+folder: "d8a6d472cbf5921b022f"
+title: "What are your strengths?"
+tags: [
+  "behavorial"
+]
+content: '''
+  #### What are your strengths?
+  * Sitting down and being able to code
+  
+  #### What are your weaknessses?
+  * Being an ambassador and bringing information from one side to the other side
+  
+  #### Tell me about a bug that you had to solve.
+  I have had way too many to remember, but here at work, I've been able to solve all of them. It basically boils down to either using a debugger or lots of print statements or moving out that code to its own little standalone script to test some syntax out. I'm not a fan of ReqChecker or Eclipse, so I tend to put print statements of variables I care about.
+  * That being said though, I have remember having a bug where I could not drop the fused entity immediately. Fusion definitely saw my request to drop because it published back a status, but it didn't actually drop the entity unless I put a delay in the code before sending the request to drop the entity. I told Jason and Don about this, and we headed over to the Fusion scrum together to discuss what we saw, and they pointed us to some configurable constant that looks at the entity propagation rate, and advised us to lower that rate so that we could drop the entity. We didn't go that route, and instead we wrote a defect against Fusion saying that since Fusion definitely saw the entity even with the default propagation rate, then they should have definitely been able to drop it immediately. A couple of weeks later, they got around to fixing that and closed the CSPR.
+  
+  #### How would you handle conflict resolution?
+  I mean, it depends on what it is...
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
+isPinned: true

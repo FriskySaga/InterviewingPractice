@@ -1,0 +1,42 @@
+'''
+    Kevin Tran
+    January 29, 2018
+    Python 2
+    Messing around with OOP principles to understand them
+'''
+
+class NoSelfies(object):
+    def __init__(self, name):
+        name = name
+
+class Selfies(object):
+    def __init__(self, name):
+        self.name = name
+
+# AttributeError: 'NoSelfies' object has no attribute 'name'
+ns = NoSelfies('Nigel')
+# print ns.name
+
+s = Selfies('Sarah')
+print s.name
+
+class Triangle(object):
+  number_of_sides = 3
+  def __init__(self, angle1, angle2, angle3):
+    self.angle1 = angle1
+    self.angle2 = angle2
+    self.angle3 = angle3
+    
+  def check_angles(self):
+    return self.angle1 + self.angle2 + self.angle3 == 180
+  
+my_triangle = Triangle(90, 30, 60)
+print my_triangle.number_of_sides
+print my_triangle.check_angles()
+
+class Equilateral(Triangle):
+  angle = 60
+  def __init__(self):
+    self.angle1 = self.angle
+    self.angle2 = self.angle
+    self.angle3 = self.angle
