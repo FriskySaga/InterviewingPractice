@@ -3,13 +3,7 @@
 
 import re
 
-def matchingSpecificString(s: str) -> bool:
-  """Match any instance of the string 'hackerrank'. This is case sensitive.
-  """
-  pattern = re.compile(r'\b' + 'hackerrank' + r'\b')
-  return pattern.search(s)
-
-def matchingAnythingButNewLine(s: str) -> bool:
+def matchNonNewLine(s: str) -> bool:
   """Match only and exactly strings of the form:
     abc.def.ghi.jkx
 
@@ -18,11 +12,14 @@ def matchingAnythingButNewLine(s: str) -> bool:
 
   ...can be any single character except the newline.
   """
-  pattern = re.compile('^.{3}\..{3}\..{3}\..{3}$')
-  return pattern.search(s)
+  return re.search('^.{3}\..{3}\..{3}\..{3}$', s)
 
+def matchSpecificString(s: str) -> bool:
+  """Match any instance of the string 'hackerrank'. This is case sensitive.
+  """
+  return re.search(r'\b' + 'hackerrank' + r'\b', s)
 
-def matchingDigitsAndNonDigitCharacters(s: str) -> bool:
+def matchDigitCharacters(s: str) -> bool:
   """Match the pattern:
     xxXxxXxxxx
 
@@ -30,16 +27,23 @@ def matchingDigitsAndNonDigitCharacters(s: str) -> bool:
     x denote a digit character
     X denote a non-digit character
   """
-  pattern = re.compile('\d\d\D\d\d\D\d\d\d\d')
-  return pattern.search(s)
+  return re.search('\d\d\D\d\d\D\d\d\d\d', s)
+
+def matchWhitespaceCharacters(s: str) -> bool:
+  """Match the pattern:
+    XXxXXxXX
+
+  Let:
+    x denote a whitespace character
+    X denote a non-whitespace character
+  """
+  return re.search('\S\S\s\S\S\s\S\S', s)
 
 if __name__ == "__main__":
-  assert matchingSpecificString('hackerrank')
-  assert matchingSpecificString('the hackerrank team')
-  assert matchingSpecificString('hackerrank2') is None
+  assert matchNonNewLine('abc.def.ghi.jkx')
+  assert not matchNonNewLine(' abc.def.ghi.jkx ')
 
-  assert matchingAnythingButNewLine('abc.def.ghi.jkx')
-  assert not matchingAnythingButNewLine(' abc.def.ghi.jkx ')
+  assert matchSpecificString('the hackerrank team')
+  assert matchDigitCharacters('06-11-2015')
+  assert matchWhitespaceCharacters('08 14 20')
 
-  assert matchingDigitsAndNonDigitCharacters('06-11-2015')
-  assert not matchingDigitsAndNonDigitCharacters('06-11-201')
