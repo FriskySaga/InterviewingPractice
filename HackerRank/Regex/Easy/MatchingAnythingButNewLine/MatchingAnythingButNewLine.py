@@ -11,10 +11,12 @@ Write a regular expression that matches only and exactly strings of the form:
 
 import re
 
+def doRegex(s: str) -> bool:
+  pattern = re.compile('^.{3}\..{3}\..{3}\..{3}$')
+  return pattern.match(s)
+
 if __name__ == "__main__":
-  s = input()
-  p = re.compile('^.{3}\..{3}\..{3}\..{3}$')
-  m = p.match(s)
-  if m is not None:
-    print('true')
+  assert doRegex('abc.def.ghi.jkx')
+  assert not doRegex(' 1abc.def.ghi.jkx ')
+  assert not doRegex('ab.def.ghi.jkx')
 
