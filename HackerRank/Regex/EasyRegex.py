@@ -39,6 +39,18 @@ def matchWhitespaceCharacters(s: str) -> bool:
   """
   return re.search('\S\S\s\S\S\s\S\S', s)
 
+def matchWordCharacters(s: str) -> bool:
+  """Match the pattern:
+    xxxXxxxxxxxxxxXxxx
+  
+  Note: There are 10 x's in the middle.
+
+  Let:
+    x denote a word character
+    X denote a non-word character
+  """
+  return re.search('\w\w\w\W\w\w\w\w\w\w\w\w\w\w\W\w\w\w', s)
+
 if __name__ == "__main__":
   assert matchNonNewLine('abc.def.ghi.jkx')
   assert not matchNonNewLine(' abc.def.ghi.jkx ')
@@ -46,4 +58,5 @@ if __name__ == "__main__":
   assert matchSpecificString('the hackerrank team')
   assert matchDigitCharacters('06-11-2015')
   assert matchWhitespaceCharacters('08 14 20')
+  assert matchWordCharacters('www.hackerrank.com')
 
