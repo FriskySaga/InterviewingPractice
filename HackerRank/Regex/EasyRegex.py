@@ -51,12 +51,37 @@ def matchWordCharacters(s: str) -> bool:
   """
   return re.search('\w\w\w\W\w\w\w\w\w\w\w\w\w\w\W\w\w\w', s)
 
+def matchSpecificCharacters(s: str) -> bool:
+  """Match a string S with the following conditions:
+  - S must be of length 6
+  - First character: 1, 2, or 3
+  - Second character: 1, 2, or 0
+  - Third character: x, s, or 0
+  - Fourth character: 3, 0, A, or a
+  - Fifth character: x, s, or u
+  - Sixth character: . or ,
+  """
+  return re.search('^[1-3][0-2][xs0][30Aa][xsu][.,]$', s)
+
+def matchSpecificCharactersViaExclusion(s: str) -> bool:
+  """Match a string S with the following conditions:
+  - S must be of length 6
+  - First character: Non-digit
+  - Second character: Non-lowercase vowel
+  - Third character: Cannot be b, c, D, or F
+  - Fourth character: Non-whitespace character
+  - Fifth character: Non-uppercase vowel
+  - Sixth character: Not . or ,
+  """
+  return re.search('^\D[^aeiou][^bcDF]\S[^AEIOU][^.,]$', s)
+
 if __name__ == "__main__":
   assert matchNonNewLine('abc.def.ghi.jkx')
-  assert not matchNonNewLine(' abc.def.ghi.jkx ')
 
   assert matchSpecificString('the hackerrank team')
   assert matchDigitCharacters('06-11-2015')
   assert matchWhitespaceCharacters('08 14 20')
   assert matchWordCharacters('www.hackerrank.com')
+  assert matchSpecificCharacters('32sau.')
+  assert matchSpecificCharactersViaExclusion('aUeky?')
 
