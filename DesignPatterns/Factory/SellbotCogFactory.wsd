@@ -1,0 +1,18 @@
+@startuml SellbotCogFactory
+
+skinparam Monochrome reverse
+
+title Factory pattern for creating Sellbot cogs
+
+Cog *-- SellbotCog
+
+package SellbotCogTypes {
+  SellbotCog *-- ...
+  SellbotCog *-- Telemarketer
+  SellbotCog *-- ColdCaller
+}
+
+CogFactory -> SellbotCogTypes: creates
+
+@enduml
+
