@@ -75,13 +75,24 @@ def matchSpecificCharactersViaExclusion(s: str) -> bool:
   """
   return re.search('^\D[^aeiou][^bcDF]\S[^AEIOU][^.,]$', s)
 
-if __name__ == "__main__":
-  assert matchNonNewLine('abc.def.ghi.jkx')
+def matchCharacterRanges(s: str) -> bool:
+  """Match a string S that satisfies the criteria:
+  - S must be at least length 5
+  - First character: Lowercase English alphabetic character
+  - Second character: Positive digit
+  - Third character: Non-lowercase English alphabetic character
+  - Fourth character: Non-uppercase English alphabetic character
+  - Fifth character: Uppercase English alphabetic character
+  """
+  return re.search('^[a-z][1-9][^a-z][^A-Z][A-Z]*', s)
 
-  assert matchSpecificString('the hackerrank team')
-  assert matchDigitCharacters('06-11-2015')
-  assert matchWhitespaceCharacters('08 14 20')
-  assert matchWordCharacters('www.hackerrank.com')
-  assert matchSpecificCharacters('32sau.')
+if __name__ == "__main__":
+  assert matchCharacterRanges('m5[tLyy')
   assert matchSpecificCharactersViaExclusion('aUeky?')
+  assert matchSpecificCharacters('32sau.')
+  assert matchWordCharacters('www.hackerrank.com')
+  assert matchWhitespaceCharacters('08 14 20')
+  assert matchDigitCharacters('06-11-2015')
+  assert matchSpecificString('the hackerrank team')
+  assert matchNonNewLine('abc.def.ghi.jkx')
 
