@@ -4,7 +4,7 @@ This project is a showcase of the Factory pattern, which is a Creational pattern
 ## Synopsis
 The example implements the Factory pattern to generate sellbot cogs from a game called Toontown.
 
-![Sellbot Cog Factory ? Diagram](SellbotCogFactory.png)
+![Sellbot Cog Factory Diagram](SellbotCogFactory.png)
 
 ## Navigating the repository
 The actual pattern is contained with `CogFactory.py`, and the _"main"_ is found within the scenario tests folder.
