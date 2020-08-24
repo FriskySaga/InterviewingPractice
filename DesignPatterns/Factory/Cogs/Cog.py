@@ -2,6 +2,11 @@
 from abc import ABCMeta, abstractmethod, abstractproperty
 
 class Cog(metaclass=ABCMeta):
+  def __init__(self):
+    assert not callable(self.name)
+    assert not callable(self.cogType)
+    assert not callable(self.examine)
+
   @property
   @abstractmethod
   def name(self) -> str:
