@@ -77,7 +77,7 @@ def matchSpecificCharactersViaExclusion(s: str) -> bool:
 
 def matchCharacterRanges(s: str) -> bool:
   """Match a string S that satisfies the criteria:
-  - S must be at least length 5
+  - S must be at least of length 5
   - First character: Lowercase English alphabetic character
   - Second character: Positive digit
   - Third character: Non-lowercase English alphabetic character
@@ -86,7 +86,16 @@ def matchCharacterRanges(s: str) -> bool:
   """
   return re.search('^[a-z][1-9][^a-z][^A-Z][A-Z]*', s)
 
+def matchCharacterRepetitions(s: str) -> bool:
+  """Match a string S that satisfies the following criteria:
+  - S must be of length 45
+  - The first 40 characters should consist of letters or even digits
+  - The last 5 characters should consist of odd digits or whitespace
+  """
+  return re.search('^([A-Z]|[a-z]|[02468]){40}([0-9]|\s){5}$', s)
+
 if __name__ == "__main__":
+  assert matchCharacterRepetitions('2222222222aaaaaaaaaa2222222222aaaaaaaaaa13 57')
   assert matchCharacterRanges('m5[tLyy')
   assert matchSpecificCharactersViaExclusion('aUeky?')
   assert matchSpecificCharacters('32sau.')
