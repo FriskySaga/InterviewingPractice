@@ -94,7 +94,16 @@ def matchCharacterRepetitions(s: str) -> bool:
   """
   return re.search('^([A-Z]|[a-z]|[02468]){40}([0-9]|\s){5}$', s)
 
+def matchXYRepetitions(s: str) -> bool:
+  """Match a string S that meets these conditions:
+  - S should begin with 1 or 2 digits
+  - After that, S should have 3 or more letters
+  - Then S should end with [0,3] . symbols.
+  """
+  return re.search('^\d{1,2}([a-z]|[A-Z]){3,}\.{0,3}$', s)
+
 if __name__ == "__main__":
+  assert matchXYRepetitions('3threeormorealphabets.')
   assert matchCharacterRepetitions('2222222222aaaaaaaaaa2222222222aaaaaaaaaa13 57')
   assert matchCharacterRanges('m5[tLyy')
   assert matchSpecificCharactersViaExclusion('aUeky?')
