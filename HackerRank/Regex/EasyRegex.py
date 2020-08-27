@@ -110,7 +110,16 @@ def matchZeroOrMoreRepetitions(s: str) -> bool:
   """
   return re.search('^\d{2,}[a-z]*[A-Z]*$', s)
 
+def matchOneOrMoreRepetitions(s: str) -> bool:
+  """Match a string S that...
+  - Begins with 1 or more digits
+  - Have 1 or more uppercase letters
+  - End with 1 or more lowercase letters
+  """
+  return re.search('^\d+[A-Z]+[a-z]+$', s)
+
 if __name__ == "__main__":
+  assert matchOneOrMoreRepetitions('18Grad')
   assert matchZeroOrMoreRepetitions('14')
   assert matchXYRepetitions('3threeormorealphabets.')
   assert matchCharacterRepetitions('2222222222aaaaaaaaaa2222222222aaaaaaaaaa13 57')
