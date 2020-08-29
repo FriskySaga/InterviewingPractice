@@ -1,4 +1,4 @@
-"""HackerRank (Easy): All Problems
+"""HackerRank: All Regex Problems
 """
 
 import re
@@ -12,7 +12,7 @@ def matchNonNewLine(s: str) -> bool:
 
   ...can be any single character except the newline.
   """
-  return re.search('^.{3}\..{3}\..{3}\..{3}$', s)
+  return re.search(r'^.{3}\..{3}\..{3}\..{3}$', s)
 
 def matchSpecificString(s: str) -> bool:
   """Match any instance of the string 'hackerrank'. This is case sensitive.
@@ -27,7 +27,7 @@ def matchDigitCharacters(s: str) -> bool:
     x denote a digit character
     X denote a non-digit character
   """
-  return re.search('\d\d\D\d\d\D\d\d\d\d', s)
+  return re.search(r'\d\d\D\d\d\D\d\d\d\d', s)
 
 def matchWhitespaceCharacters(s: str) -> bool:
   """Match the pattern:
@@ -37,7 +37,7 @@ def matchWhitespaceCharacters(s: str) -> bool:
     x denote a whitespace character
     X denote a non-whitespace character
   """
-  return re.search('\S\S\s\S\S\s\S\S', s)
+  return re.search(r'\S\S\s\S\S\s\S\S', s)
 
 def matchWordCharacters(s: str) -> bool:
   """Match the pattern:
@@ -49,7 +49,7 @@ def matchWordCharacters(s: str) -> bool:
     x denote a word character
     X denote a non-word character
   """
-  return re.search('\w\w\w\W\w\w\w\w\w\w\w\w\w\w\W\w\w\w', s)
+  return re.search(r'\w\w\w\W\w\w\w\w\w\w\w\w\w\w\W\w\w\w', s)
 
 def matchSpecificCharacters(s: str) -> bool:
   """Match a string S with the following conditions:
@@ -61,7 +61,7 @@ def matchSpecificCharacters(s: str) -> bool:
   - Fifth character: x, s, or u
   - Sixth character: . or ,
   """
-  return re.search('^[1-3][0-2][xs0][30Aa][xsu][.,]$', s)
+  return re.search(r'^[1-3][0-2][xs0][30Aa][xsu][.,]$', s)
 
 def matchSpecificCharactersViaExclusion(s: str) -> bool:
   """Match a string S with the following conditions:
@@ -73,7 +73,7 @@ def matchSpecificCharactersViaExclusion(s: str) -> bool:
   - Fifth character: Non-uppercase vowel
   - Sixth character: Not . or ,
   """
-  return re.search('^\D[^aeiou][^bcDF]\S[^AEIOU][^.,]$', s)
+  return re.search(r'^\D[^aeiou][^bcDF]\S[^AEIOU][^.,]$', s)
 
 def matchCharacterRanges(s: str) -> bool:
   """Match a string S that satisfies the criteria:
@@ -84,7 +84,7 @@ def matchCharacterRanges(s: str) -> bool:
   - Fourth character: Non-uppercase English alphabetic character
   - Fifth character: Uppercase English alphabetic character
   """
-  return re.search('^[a-z][1-9][^a-z][^A-Z][A-Z]*', s)
+  return re.search(r'^[a-z][1-9][^a-z][^A-Z][A-Z]*', s)
 
 def matchCharacterRepetitions(s: str) -> bool:
   """Match a string S that satisfies the following criteria:
@@ -92,7 +92,7 @@ def matchCharacterRepetitions(s: str) -> bool:
   - The first 40 characters should consist of letters or even digits
   - The last 5 characters should consist of odd digits or whitespace
   """
-  return re.search('^([A-Z]|[a-z]|[02468]){40}([0-9]|\s){5}$', s)
+  return re.search(r'^([A-Z]|[a-z]|[02468]){40}([0-9]|\s){5}$', s)
 
 def matchXYRepetitions(s: str) -> bool:
   """Match a string S that meets these conditions:
@@ -100,7 +100,7 @@ def matchXYRepetitions(s: str) -> bool:
   - After that, S should have 3 or more letters
   - Then S should end with [0,3] . symbols.
   """
-  return re.search('^\d{1,2}([a-z]|[A-Z]){3,}\.{0,3}$', s)
+  return re.search(r'^\d{1,2}([a-z]|[A-Z]){3,}\.{0,3}$', s)
 
 def matchZeroOrMoreRepetitions(s: str) -> bool:
   """Match a string S that...
@@ -108,7 +108,7 @@ def matchZeroOrMoreRepetitions(s: str) -> bool:
   - After that, S should have 0 more lowercase characters
   - S should end with 0 or more uppercase letters
   """
-  return re.search('^\d{2,}[a-z]*[A-Z]*$', s)
+  return re.search(r'^\d{2,}[a-z]*[A-Z]*$', s)
 
 def matchOneOrMoreRepetitions(s: str) -> bool:
   """Match a string S that...
@@ -116,9 +116,19 @@ def matchOneOrMoreRepetitions(s: str) -> bool:
   - Have 1 or more uppercase letters
   - End with 1 or more lowercase letters
   """
-  return re.search('^\d+[A-Z]+[a-z]+$', s)
+  return re.search(r'^\d+[A-Z]+[a-z]+$', s)
+
+def matchWordBoundaries(s: str) -> bool:
+  """Match a string S that...
+  - Can be of any length
+  - Starts with a word boundary followed by a vowel
+  - Contains only letters
+  - Ends with a word boundary
+  """
+  return re.search(r'\b[aeiouAEIOU][a-zA-Z]*\b', s)
 
 if __name__ == "__main__":
+  assert matchWordBoundaries('Found any match?')
   assert matchOneOrMoreRepetitions('18Grad')
   assert matchZeroOrMoreRepetitions('14')
   assert matchXYRepetitions('3threeormorealphabets.')
