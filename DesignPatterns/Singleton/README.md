@@ -16,3 +16,8 @@ The actual pattern is contained with `?.cpp`, and the _"main"_ is found within t
 * https://www.wikiwand.com/en/Singleton_pattern
 * https://www.tutorialspoint.com/design_pattern/singleton_pattern.htm
 
+## Ideas
+- Logging
+- Manager
+- Fate Manager
+

@@ -127,7 +127,41 @@ def matchWordBoundaries(s: str) -> bool:
   """
   return re.search(r'\b[aeiouAEIOU][a-zA-Z]*\b', s)
 
+def captureGroups(s: str) -> bool:
+  """Match a string S that...
+  - Has at least 3 consecutive repetitions of 'ok'
+  """
+  return re.search(r'(ok){3}', s)
+
+def matchSameTextAgain(s: str) -> bool:
+  """Match a string S that...
+  - Length 20
+  1. lowercase letter
+  2. word character
+  3. whitespace character
+  4. non-word character
+  5. digit
+  6. non-digit
+  7. uppercase letter
+  8. letter
+  9. vowel
+  10. non-whitespace character
+  Rinse & repeat for remaining 10 characters
+  """
+  return re.search(r'([a-z]\w\s\W\d\D[A-Z][a-zA-Z][aeiouAEIOU]\S)\1', s)
+
+def backreferenceToFailedGroups(s: str) -> bool:
+  """Match a string S that...
+  - Consists of 8 digits
+  - May have a "-" separator such that S gets divided in sets of 2 digits
+  """
+  return re.search(r'(\d{8}|\d{2}', s)
+
 if __name__ == "__main__":
+  assert backreferenceToFailedGroups('12345678')
+  # assert backreferenceToFailedGroups('12-34-56-78')
+  assert matchSameTextAgain('ab #1?AZa$ab #1?AZa$')
+  assert captureGroups('hiokokok43')
   assert matchWordBoundaries('Found any match?')
   assert matchOneOrMoreRepetitions('18Grad')
   assert matchZeroOrMoreRepetitions('14')
