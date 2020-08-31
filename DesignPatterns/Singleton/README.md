@@ -6,18 +6,11 @@ The example implements the Singleton pattern to ?
 
 ![?](?.png)
 
-## Navigating the repository
-The actual pattern is contained with `?.cpp`, and the _"main"_ is found within the scenario tests folder.
-
 ## Tools
 * C++
 
 ## Resources
 * https://www.wikiwand.com/en/Singleton_pattern
 * https://www.tutorialspoint.com/design_pattern/singleton_pattern.htm
-
-## Ideas
-- Logging
-- Manager
-- Fate Manager
+* https://www.tutorialspoint.com/Explain-Cplusplus-Singleton-design-pattern
 

@@ -2,3 +2,6 @@
 .vscode/
 Workspace.code-workspace
 
+# Ignore build files
+Build/
+
