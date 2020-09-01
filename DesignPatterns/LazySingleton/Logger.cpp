@@ -7,8 +7,8 @@ Logger::Logger()
 
 Logger& Logger::getInstance()
 {
-  static Logger INSTANCE;
-  return INSTANCE;
+  static Logger instance;
+  return instance;
 }
 
 const char* Logger::getSeverity()

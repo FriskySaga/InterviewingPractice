@@ -17,7 +17,12 @@ int main()
 
   // // Constructor is private, so this will not work
   // Logger anotherLogger = Logger::Logger();
-  // anotherLogger.getSeverity();
+
+  // // Using the copy constructor for Logger should not work
+  // Logger anotherLogger = Logger(myLogger);
+
+  // // Using the assignment operator for Logger should not work
+  // myLogger = secondLogger;
 
   return 0;
 }

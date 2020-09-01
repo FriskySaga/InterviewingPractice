@@ -2,7 +2,7 @@
 
 skinparam Monochrome reverse
 
-title Singleton pattern for creating a logger
+title Lazy Singleton pattern for creating a logger
 
 class Logger
 {
