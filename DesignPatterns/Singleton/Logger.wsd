@@ -1,0 +1,23 @@
+@startuml Logger
+
+skinparam Monochrome reverse
+
+title Singleton pattern for creating a logger
+
+class Logger
+{
+  + {static} static Logger& getInstance()
+  + const char* getSeverity()
+  + void setSeverity()
+  ..
+  - Logger()
+}
+
+note bottom of Logger
+  Constructor is made private to force the caller to call Logger::getInstance()
+end note
+
+Client -> Logger: creates only one instance via Logger::getInstance()
+
+@enduml
+

@@ -13,7 +13,7 @@ Logger& Logger::getInstance()
 
 const char* Logger::getSeverity()
 {
-  return LogSeverity::toString(m_severity);
+  return LogSeverity::getString(m_severity);
 }
 
 void Logger::setSeverity(LogSeverity::LogSeverityEnum severity)

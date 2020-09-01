@@ -22,7 +22,7 @@ namespace LogSeverity
     "TRACE"
   };
 
-  static const char* toString(int enumValue)
+  static const char* getString(int enumValue)
   {
     return LogSeverityEnumStrings[enumValue];
   }

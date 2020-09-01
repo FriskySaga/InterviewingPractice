@@ -1,16 +1,17 @@
 # Singleton Pattern
-This project is a showcase of the Singleton pattern, which is a ? pattern
+This project is a showcase of the Singleton pattern, which is a Creational pattern to guarantee the creation of only one instance of a class.
 
 ## Synopsis
-The example implements the Singleton pattern to ?
+The example leverages the Singleton pattern to create a logging utility. This example is inspired by Python's logging module which also leverages the Singleton pattern.
 
-![?](?.png)
+![Singleton Logger Diagram](Logger.png)
 
 ## Tools
-* C++
+* C++ 14
+* CMake 3.16.3
 
 ## Resources
 * https://www.wikiwand.com/en/Singleton_pattern
 * https://www.tutorialspoint.com/design_pattern/singleton_pattern.htm
-* https://www.tutorialspoint.com/Explain-Cplusplus-Singleton-design-pattern
+* https://stackoverflow.com/questions/1008019/c-singleton-design-pattern
 
