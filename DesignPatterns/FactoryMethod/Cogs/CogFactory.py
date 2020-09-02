@@ -1,12 +1,10 @@
-# Python imports
-import logging
-
 # Project imports
 from Cogs.CogEnums import SellbotCogType
 from Cogs.SellbotCogTypes.ColdCaller import ColdCaller
 from Cogs.SellbotCogTypes.Telemarketer import Telemarketer
 
-SELLBOT_COG_TYPES = {
+SELLBOT_COG_TYPES = \
+{
   SellbotCogType.COLD_CALLER:  ColdCaller,
   SellbotCogType.TELEMARKETER: Telemarketer,
 }

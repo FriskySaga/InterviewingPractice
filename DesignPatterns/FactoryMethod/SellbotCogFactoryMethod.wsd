@@ -1,8 +1,8 @@
-@startuml SellbotCogFactory
+@startuml SellbotCogFactoryMethod
 
 skinparam Monochrome reverse
 
-title Factory pattern for creating Sellbot cogs
+title Factory Method pattern for creating Sellbot cogs
 
 Cog *-- SellbotCog
 
