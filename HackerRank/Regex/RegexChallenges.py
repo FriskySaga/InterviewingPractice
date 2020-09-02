@@ -155,11 +155,22 @@ def backreferenceToFailedGroups(s: str) -> bool:
   - Consists of 8 digits
   - May have a "-" separator such that S gets divided in sets of 2 digits
   """
-  return re.search(r'(\d{8}|\d{2}', s)
+  # return re.search(r'^\d{8}$|' + r'^\d{2}(-\d{2}){3}$', s)
+  return re.search(r'^\d\d(-?)(\d\d\1){2}\d\d$', s)
+
+
+def branchResetGroups(s: str) -> bool:
+  """Match a string S that...
+  - Consists of 8 digits
+  - Must have '---', '-', '.', or ':' separator such that S gets divided into 4 equal parts
+  - S must have exactly one kind of separator
+  """
+  return re.search(r'^\d{2}(?|(-{3})|(-)|(\.)|(:))(\d{2}\1){2}\d{2}$', s)
 
 if __name__ == "__main__":
+  # assert branchResetGroups('12---34---56---78') # Works in Perl
   assert backreferenceToFailedGroups('12345678')
-  # assert backreferenceToFailedGroups('12-34-56-78')
+  assert backreferenceToFailedGroups('12-34-56-78')
   assert matchSameTextAgain('ab #1?AZa$ab #1?AZa$')
   assert captureGroups('hiokokok43')
   assert matchWordBoundaries('Found any match?')
