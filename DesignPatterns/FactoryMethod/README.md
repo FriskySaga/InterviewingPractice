@@ -11,7 +11,7 @@ The actual pattern is contained with `CogFactory.py`, and the _"main"_ is found 
 
 ## Tools
 * Python 3.9.0b3
-  * Path to `Factory` folder is added to PYTHONPATH environment variable
+  * Path to this `FactoryMethod` folder is added to PYTHONPATH environment variable
 
 ## Resources
 * https://www.wikiwand.com/en/Factory_method_pattern
