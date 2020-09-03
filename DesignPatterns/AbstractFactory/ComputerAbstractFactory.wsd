@@ -1,0 +1,104 @@
+@startuml ComputerAbstractFactory
+
+skinparam Monochrome reverse
+
+title Abstract Factory pattern for creating parts for computers
+
+class ComputerFactory
+{
+  + ComputerFactory()
+  + createAndroid()
+  + createLaptop()
+}
+
+class Computer
+{
+}
+
+' Android
+class Android
+{
+}
+
+class AndroidFactory
+{
+  + AndroidFactory()
+  + createCPU()
+  + createRAM()
+}
+
+' Laptop
+class Laptop
+{
+}
+
+class LaptopFactory
+{
+  + LaptopFactory()
+  + createCPU()
+  + createRAM()
+}
+
+' CPU
+class CPU
+{
+}
+
+class AndroidCPU
+{
+}
+
+class LaptopCPU
+{
+}
+
+class CPUFactory
+{
+}
+
+' RAM
+class RAM
+{
+}
+
+class AndroidRAM
+{
+}
+
+class LaptopRAM
+{
+}
+
+class RAMFactory
+{
+}
+
+Client -> ComputerFactory
+ComputerFactory o-- AndroidFactory
+ComputerFactory o-- LaptopFactory
+
+Computer <|-- Android
+Computer <|-- Laptop
+
+AndroidFactory o-- Android
+Android o-- AndroidCPU
+Android o-- AndroidRAM
+
+LaptopFactory o-- Laptop
+Laptop o-- LaptopCPU
+Laptop o-- LaptopRAM
+
+AndroidFactory o-- CPUFactory
+LaptopFactory o-- CPUFactory
+CPUFactory o-- CPU
+CPU <|-- AndroidCPU
+CPU <|-- LaptopCPU
+
+AndroidFactory o-- RAMFactory
+LaptopFactory o-- RAMFactory
+RAMFactory o-- RAM
+RAM <|-- AndroidRAM
+RAM <|-- LaptopRAM
+
+@enduml
+

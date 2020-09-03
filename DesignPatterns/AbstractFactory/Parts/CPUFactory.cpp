@@ -1,0 +1,6 @@
+class CPUFactory
+{
+public:
+  
+};
+
