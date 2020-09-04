@@ -1,5 +1,11 @@
+// C++ includes
 #include <iostream>
+
+// External includes
 #include <gtest/gtest.h>
+
+// Project includes
+#include "AndroidCPU.h"
 
 TEST(AbstractFactoryTest, CPUFactoryTest)
 {

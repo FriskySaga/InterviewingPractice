@@ -1,7 +1,10 @@
-class CPU : Component
+#include "CPU.h"
+
+CPU::CPU()
 {
-public:
-  virtual const int getNumberOfCores() = 0;
-  virtual const float getClockSpeedGHz() = 0;
-};
+}
+
+CPU::~CPU()
+{
+}
 

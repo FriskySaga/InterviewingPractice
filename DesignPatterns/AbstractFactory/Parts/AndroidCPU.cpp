@@ -1,50 +1,47 @@
+// C++ includes
 #include <string>
 
-class AndroidCPU
+// Project includes
+#include "AndroidCPU.h"
+
+AndroidCPU::AndroidCPU(std::string brandName,
+                       std::string modelName,
+                       int numberOfCores,
+                       float clockSpeedGHz)
+  : brandName(brandName),
+    modelName(modelName),
+    platformName("Android"),
+    numberOfCores(numberOfCores),
+    clockSpeedGHz(clockSpeedGHz)
 {
-public:
-  AndroidCPU(std::string brandName,
-             std::string modelName,
-             int numberOfCores,
-             float clockSpeedGHz)
-    : brandName(brandName),
-      modelName(modelName),
-      platformName("Android"),
-      numberOfCores(numberOfCores),
-      clockSpeedGHz(clockSpeedGHz)
-  {
-  }
+}
 
-  const std::string getBrand()
-  {
-    return brandName;
-  }
+AndroidCPU::~AndroidCPU()
+{
+}
 
-  const std::string getModel()
-  {
-    return modelName;
-  }
+const std::string AndroidCPU::getBrand()
+{
+  return brandName;
+}
 
-  const std::string getPlatform()
-  {
-    return platformName;
-  }
+const std::string AndroidCPU::getModel()
+{
+  return modelName;
+}
 
-  const int getNumberOfCores()
-  {
-    return numberOfCores;
-  }
+const std::string AndroidCPU::getPlatform()
+{
+  return platformName;
+}
 
-  const float getClockSpeedGHz()
-  {
-    return clockSpeedGHz;
-  }
+const int AndroidCPU::getNumberOfCores()
+{
+  return numberOfCores;
+}
 
-private:
-  std::string brandName;
-  std::string modelName;
-  std::string platformName;
-  int numberOfCores;
-  float clockSpeedGHz;
-};
+const float AndroidCPU::getClockSpeedGHz()
+{
+  return clockSpeedGHz;
+}
 
