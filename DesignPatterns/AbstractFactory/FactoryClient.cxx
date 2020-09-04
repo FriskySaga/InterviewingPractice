@@ -5,7 +5,7 @@
 #include <gtest/gtest.h>
 
 // Project includes
-#include "AndroidCPU.h"
+#include "AndroidCPU.hpp"
 
 TEST(AbstractFactoryTest, CPUFactoryTest)
 {

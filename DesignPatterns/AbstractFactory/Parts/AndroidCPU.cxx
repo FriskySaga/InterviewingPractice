@@ -2,7 +2,7 @@
 #include <string>
 
 // Project includes
-#include "AndroidCPU.h"
+#include "AndroidCPU.hpp"
 
 AndroidCPU::AndroidCPU(std::string brandName,
                        std::string modelName,

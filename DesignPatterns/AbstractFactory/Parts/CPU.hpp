@@ -1,13 +1,13 @@
 // Project includes
-//#include "Component.h"
+#include "Component.hpp"
 
-class CPU // : Component
+class CPU : Component
 {
 public:
-  CPU();
-  virtual ~CPU();
   virtual const int getNumberOfCores() = 0;
   virtual const float getClockSpeedGHz() = 0;
-private:
+protected:
+  CPU();
+  virtual ~CPU();
 };
 

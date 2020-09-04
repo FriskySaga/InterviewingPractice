@@ -2,7 +2,7 @@
 #include <string>
 
 // Project includes
-#include "CPU.cpp"
+#include "CPU.hpp"
 
 class AndroidCPU : CPU
 {
