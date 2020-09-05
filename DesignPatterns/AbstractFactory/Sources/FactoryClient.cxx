@@ -7,9 +7,16 @@
 // Project includes
 #include "AndroidCPU.hpp"
 
-TEST(AbstractFactoryTest, CPUFactoryTest)
+TEST(AbstractFactoryTest, AndroidCPUTest)
 {
-  ASSERT_EQ(1,1);
+  AndroidCPU phoneCPU(
+    "Qualcomm",
+    "Snapdragon 865 5G Mobile Platform",
+    5U,
+    8U,
+    2.84
+  );
+  std::cout << "hello" << std::endl;
 }
 
 int main(int argc, char** argv)

@@ -6,13 +6,15 @@
 
 AndroidCPU::AndroidCPU(std::string brandName,
                        std::string modelName,
-                       int numberOfCores,
-                       float clockSpeedGHz)
+                       uint16_t generationNumber,
+                       uint16_t numberOfCores,
+                       float maxClockSpeedGHz)
   : brandName(brandName),
     modelName(modelName),
     platformName("Android"),
+    generationNumber(generationNumber),
     numberOfCores(numberOfCores),
-    clockSpeedGHz(clockSpeedGHz)
+    maxClockSpeedGHz(maxClockSpeedGHz)
 {
 }
 
@@ -35,13 +37,18 @@ const std::string AndroidCPU::getPlatform()
   return platformName;
 }
 
-const int AndroidCPU::getNumberOfCores()
+const uint16_t AndroidCPU::getGeneration()
+{
+  return generationNumber;
+}
+
+const uint16_t AndroidCPU::getNumberOfCores()
 {
   return numberOfCores;
 }
 
-const float AndroidCPU::getClockSpeedGHz()
+const float AndroidCPU::getMaxClockSpeedGHz()
 {
-  return clockSpeedGHz;
+  return maxClockSpeedGHz;
 }
 

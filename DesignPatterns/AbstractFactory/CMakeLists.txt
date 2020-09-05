@@ -6,17 +6,15 @@ project(
   DESCRIPTION "Abstract Factory Pattern Example"
   LANGUAGES CXX
 )
-
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+include_directories(Includes)
+add_subdirectory(Sources)
+file(GLOB SOURCES Sources/*.cxx)
+
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
-
-add_subdirectory(Base)
-add_subdirectory(Parts)
-
-add_executable(FactoryClientTest FactoryClient.cxx)
-target_compile_features(FactoryClientTest PRIVATE cxx_std_14)
-target_link_libraries(FactoryClientTest PRIVATE CPU ${GTEST_LIBRARIES} pthread)
+add_executable(FactoryClientTest ${SOURCES})
+target_link_libraries(FactoryClientTest PUBLIC ${GTEST_LIBRARIES} pthread)
 
