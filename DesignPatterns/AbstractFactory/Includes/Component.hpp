@@ -1,3 +1,4 @@
+// C++ includes
 #include <string>
 
 class Component
