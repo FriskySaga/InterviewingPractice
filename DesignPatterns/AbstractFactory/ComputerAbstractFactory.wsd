@@ -4,6 +4,13 @@ skinparam Monochrome reverse
 
 title Abstract Factory pattern for creating parts for computers
 
+class Component
+{
+  {abstract} getBrand()
+  {abstract} getModel()
+  {abstract} getPlatform()
+}
+
 class ComputerFactory
 {
   + ComputerFactory()
@@ -24,7 +31,6 @@ class AndroidFactory
 {
   + AndroidFactory()
   + createCPU()
-  + createRAM()
 }
 
 ' Laptop
@@ -36,40 +42,37 @@ class LaptopFactory
 {
   + LaptopFactory()
   + createCPU()
-  + createRAM()
 }
 
 ' CPU
 class CPU
 {
+  {abstract} getGeneration()
+  {abstract} getNumberOfCores()
+  {abstract} getMaxClockSpeedGHz()
 }
 
 class AndroidCPU
 {
+  + getBrand()
+  + getModel()
+  + getPlatform()
+  + getGeneration()
+  + getNumberOfCores()
+  + getMaxClockSpeedGHz()
 }
 
 class LaptopCPU
 {
+  + getBrand()
+  + getModel()
+  + getPlatform()
+  + getGeneration()
+  + getNumberOfCores()
+  + getMaxClockSpeedGHz()
 }
 
 class CPUFactory
-{
-}
-
-' RAM
-class RAM
-{
-}
-
-class AndroidRAM
-{
-}
-
-class LaptopRAM
-{
-}
-
-class RAMFactory
 {
 }
 
@@ -77,28 +80,23 @@ Client -> ComputerFactory
 ComputerFactory o-- AndroidFactory
 ComputerFactory o-- LaptopFactory
 
+Component <|-- Computer
+Component <|-- CPU
+
 Computer <|-- Android
 Computer <|-- Laptop
 
 AndroidFactory o-- Android
 Android o-- AndroidCPU
-Android o-- AndroidRAM
 
 LaptopFactory o-- Laptop
 Laptop o-- LaptopCPU
-Laptop o-- LaptopRAM
 
 AndroidFactory o-- CPUFactory
 LaptopFactory o-- CPUFactory
 CPUFactory o-- CPU
 CPU <|-- AndroidCPU
 CPU <|-- LaptopCPU
-
-AndroidFactory o-- RAMFactory
-LaptopFactory o-- RAMFactory
-RAMFactory o-- RAM
-RAM <|-- AndroidRAM
-RAM <|-- LaptopRAM
 
 @enduml
 

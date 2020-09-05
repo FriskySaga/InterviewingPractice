@@ -6,6 +6,7 @@
 
 // Project includes
 #include "AndroidCPU.hpp"
+#include "LaptopCPU.hpp"
 
 TEST(AbstractFactoryTest, AndroidCPUTest)
 {
@@ -26,6 +27,27 @@ TEST(AbstractFactoryTest, AndroidCPUTest)
   EXPECT_EQ(generationNumber, phoneCPU.getGeneration());
   EXPECT_EQ(numberOfCores, phoneCPU.getNumberOfCores());
   EXPECT_EQ(maxClockSpeedGHz, phoneCPU.getMaxClockSpeedGHz());
+}
+
+TEST(AbstractFactoryTest, LaptopCPUTest)
+{
+  const std::string brandName("Intel");
+  const std::string modelName("Intel Core i5-7400");
+  const uint16_t generationNumber(7U);
+  const uint16_t numberOfCores(4U);
+  const float maxClockSpeedGHz(3.00);
+
+  LaptopCPU laptopCPU(brandName,
+                      modelName,
+                      generationNumber,
+                      numberOfCores,
+                      maxClockSpeedGHz);
+
+  EXPECT_EQ(brandName, laptopCPU.getBrand());
+  EXPECT_EQ(modelName, laptopCPU.getModel());
+  EXPECT_EQ(generationNumber, laptopCPU.getGeneration());
+  EXPECT_EQ(numberOfCores, laptopCPU.getNumberOfCores());
+  EXPECT_EQ(maxClockSpeedGHz, laptopCPU.getMaxClockSpeedGHz());
 }
 
 int main(int argc, char** argv)

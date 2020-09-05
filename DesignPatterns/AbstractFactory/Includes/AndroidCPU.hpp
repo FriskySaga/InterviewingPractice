@@ -1,3 +1,5 @@
+#pragma once
+
 // Project includes
 #include "CPU.hpp"
 
