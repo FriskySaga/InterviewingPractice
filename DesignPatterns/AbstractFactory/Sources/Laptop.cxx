@@ -1,14 +1,13 @@
 // Project includes
 #include "Laptop.hpp"
-// #include "LaptopCPU.hpp"
 
 Laptop::Laptop(std::string brandName,
                std::string modelName,
-               CPU* cpu)
+               LaptopCPU& cpu)
   : brandName(brandName),
-    modelName(modelName)
+    modelName(modelName),
+    cpu(cpu)
 {
-  // this->cpu = dynamic_cast<LaptopCPU*>(cpu);
 }
 
 Laptop::~Laptop()
@@ -30,8 +29,8 @@ const std::string Laptop::getPlatform()
   return platformName;
 }
 
-const CPU* Laptop::getCPU()
+LaptopCPU& Laptop::getCPU()
 {
-  return NULL;
+  return cpu;
 }
 

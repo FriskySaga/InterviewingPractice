@@ -167,7 +167,16 @@ def branchResetGroups(s: str) -> bool:
   """
   return re.search(r'^\d{2}(?|(-{3})|(-)|(\.)|(:))(\d{2}\1){2}\d{2}$', s)
 
+def forwardReference(s: str) -> bool:
+  """Match a string S that...
+  - Consists of 'tic' or 'tac'
+  - 'tic' should not be immediately neighbor of itself
+  - The first 'tic' must occur only when tac has appeared at least twice before
+  """
+  return re.search(r'^(\2tic|(tac)){2,}$', s) # oneonetwo
+
 if __name__ == "__main__":
+  # assert forwardReference('tactactic') # Works in Perl
   # assert branchResetGroups('12---34---56---78') # Works in Perl
   assert backreferenceToFailedGroups('12345678')
   assert backreferenceToFailedGroups('12-34-56-78')

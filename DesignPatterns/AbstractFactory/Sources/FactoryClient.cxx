@@ -5,49 +5,75 @@
 #include <gtest/gtest.h>
 
 // Project includes
+#include "Android.hpp"
 #include "AndroidCPU.hpp"
+#include "Laptop.hpp"
 #include "LaptopCPU.hpp"
 
-TEST(AbstractFactoryTest, AndroidCPUTest)
+TEST(AbstractFactoryTest, AndroidTest)
 {
-  const std::string brandName("Qualcomm");
-  const std::string modelName("Snapdragon 855 Mobile Platform");
+  // Create a CPU
+  const std::string cpuBrandName("Qualcomm");
+  const std::string cpuModelName("Snapdragon 855 Mobile Platform");
   const uint16_t generationNumber(4U);
   const uint16_t numberOfCores(8U);
   const float maxClockSpeedGHz(2.84);
 
-  AndroidCPU phoneCPU(brandName,
-                      modelName,
-                      generationNumber,
-                      numberOfCores,
-                      maxClockSpeedGHz);
+  AndroidCPU androidCPU(cpuBrandName,
+                        cpuModelName,
+                        generationNumber,
+                        numberOfCores,
+                        maxClockSpeedGHz);
 
-  EXPECT_EQ(brandName, phoneCPU.getBrand());
-  EXPECT_EQ(modelName, phoneCPU.getModel());
-  EXPECT_EQ(generationNumber, phoneCPU.getGeneration());
-  EXPECT_EQ(numberOfCores, phoneCPU.getNumberOfCores());
-  EXPECT_EQ(maxClockSpeedGHz, phoneCPU.getMaxClockSpeedGHz());
+  EXPECT_EQ(cpuBrandName, androidCPU.getBrand());
+  EXPECT_EQ(cpuModelName, androidCPU.getModel());
+  EXPECT_EQ(generationNumber, androidCPU.getGeneration());
+  EXPECT_EQ(numberOfCores, androidCPU.getNumberOfCores());
+  EXPECT_EQ(maxClockSpeedGHz, androidCPU.getMaxClockSpeedGHz());
+
+  // Create an Android phone
+  const std::string androidBrandName("Samsung");
+  const std::string androidModelName("Galaxy S10 Plus");
+  Android androidPhone(androidBrandName,
+                       androidModelName,
+                       androidCPU);
+
+  EXPECT_EQ(androidBrandName, androidPhone.getBrand());
+  EXPECT_EQ(androidModelName, androidPhone.getModel());
+  EXPECT_TRUE(androidCPU == androidPhone.getCPU());
 }
 
-TEST(AbstractFactoryTest, LaptopCPUTest)
+TEST(AbstractFactoryTest, LaptopTest)
 {
-  const std::string brandName("Intel");
-  const std::string modelName("Intel Core i5-7400");
-  const uint16_t generationNumber(7U);
+  // Create a CPU
+  const std::string cpuBrandName("Intel");
+  const std::string cpuModelName("Core i7-8565U");
+  const uint16_t generationNumber(8U);
   const uint16_t numberOfCores(4U);
-  const float maxClockSpeedGHz(3.00);
+  const float maxClockSpeedGHz(4.60);
 
-  LaptopCPU laptopCPU(brandName,
-                      modelName,
+  LaptopCPU laptopCPU(cpuBrandName,
+                      cpuModelName,
                       generationNumber,
                       numberOfCores,
                       maxClockSpeedGHz);
 
-  EXPECT_EQ(brandName, laptopCPU.getBrand());
-  EXPECT_EQ(modelName, laptopCPU.getModel());
+  EXPECT_EQ(cpuBrandName, laptopCPU.getBrand());
+  EXPECT_EQ(cpuModelName, laptopCPU.getModel());
   EXPECT_EQ(generationNumber, laptopCPU.getGeneration());
   EXPECT_EQ(numberOfCores, laptopCPU.getNumberOfCores());
   EXPECT_EQ(maxClockSpeedGHz, laptopCPU.getMaxClockSpeedGHz());
+
+  // Create a Laptop computer
+  const std::string laptopBrandName("HP");
+  const std::string laptopModelName("Elite Dragonfly");
+  Laptop laptopComputer(laptopBrandName,
+                        laptopModelName,
+                        laptopCPU);
+
+  EXPECT_EQ(laptopBrandName, laptopComputer.getBrand());
+  EXPECT_EQ(laptopModelName, laptopComputer.getModel());
+  EXPECT_TRUE(laptopCPU == laptopComputer.getCPU());
 }
 
 int main(int argc, char** argv)

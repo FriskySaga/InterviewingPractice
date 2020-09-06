@@ -1,22 +1,21 @@
 #pragma once
 
 // Project includes
-#include "Computer.hpp"
-class LaptopCPU;
+#include "LaptopCPU.hpp"
 
-class Laptop : Computer
+class Laptop : public Component
 {
 public:
   Laptop(std::string brandName,
          std::string modelName,
-         CPU* cpu);
+         LaptopCPU& cpu);
 
   virtual ~Laptop();
 
   const std::string getBrand();
   const std::string getModel();
   const std::string getPlatform();
-  const CPU* getCPU();
+  LaptopCPU& getCPU();
 
 private:
   // Component attributes
@@ -25,6 +24,6 @@ private:
   std::string platformName;
 
   // Computer attributes
-  LaptopCPU* cpu;
+  LaptopCPU& cpu;
 };
 

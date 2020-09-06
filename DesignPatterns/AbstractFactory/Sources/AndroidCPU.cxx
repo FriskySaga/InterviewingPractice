@@ -22,6 +22,16 @@ AndroidCPU::~AndroidCPU()
 {
 }
 
+bool AndroidCPU::operator==(AndroidCPU& rhs)
+{
+  return this->getBrand() == rhs.getBrand() &&
+         this->getModel() == rhs.getModel() &&
+         this->getPlatform() == rhs.getPlatform() &&
+         this->getGeneration() == rhs.getGeneration() &&
+         this->getNumberOfCores() == rhs.getNumberOfCores() &&
+         this->getMaxClockSpeedGHz() == rhs.getMaxClockSpeedGHz();
+}
+
 const std::string AndroidCPU::getBrand()
 {
   return brandName;

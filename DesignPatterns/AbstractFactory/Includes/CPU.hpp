@@ -3,7 +3,7 @@
 // Project includes
 #include "Component.hpp"
 
-class CPU : Component
+class CPU : public Component
 {
 public:
   virtual const uint16_t getGeneration() = 0;

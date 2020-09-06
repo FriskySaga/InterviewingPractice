@@ -3,7 +3,7 @@
 // Project includes
 #include "CPU.hpp"
 
-class AndroidCPU : CPU
+class AndroidCPU : public CPU
 {
 public:
   AndroidCPU(std::string brandName,
@@ -13,6 +13,8 @@ public:
              float maxClockSpeedGHz);
 
   virtual ~AndroidCPU();
+
+  bool operator==(AndroidCPU& rhs);
 
   // Component attributes
   const std::string getBrand();
