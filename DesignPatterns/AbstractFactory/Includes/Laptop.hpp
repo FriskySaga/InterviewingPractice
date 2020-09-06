@@ -12,9 +12,12 @@ public:
 
   virtual ~Laptop();
 
+  // Component attributes
   const std::string getBrand();
   const std::string getModel();
   const std::string getPlatform();
+
+  // Laptop attributes
   LaptopCPU& getCPU();
 
 private:
@@ -23,7 +26,7 @@ private:
   std::string modelName;
   std::string platformName;
 
-  // Computer attributes
+  // Laptop attributes
   LaptopCPU& cpu;
 };
 
