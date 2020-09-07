@@ -6,15 +6,15 @@
 class AndroidCPU : public CPU
 {
 public:
-  AndroidCPU(std::string brandName,
-             std::string modelName,
-             uint16_t generationNumber,
-             uint16_t numberOfCores,
-             float maxClockSpeedGHz);
+  AndroidCPU(const std::string brandName,
+             const std::string modelName,
+             const uint16_t generationNumber,
+             const uint16_t numberOfCores,
+             const float maxClockSpeedGHz);
 
   virtual ~AndroidCPU();
 
-  bool operator==(AndroidCPU& rhs);
+  const bool operator==(AndroidCPU* rhs);
 
   // Component attributes
   const std::string getBrand();
@@ -28,13 +28,13 @@ public:
 
 private:
   // Component attributes
-  std::string brandName;
-  std::string modelName;
-  std::string platformName;
+  const std::string brandName;
+  const std::string modelName;
+  const std::string platformName;
 
   // CPU attributes
-  uint16_t generationNumber;
-  uint16_t numberOfCores;
-  float maxClockSpeedGHz;
+  const uint16_t generationNumber;
+  const uint16_t numberOfCores;
+  const float maxClockSpeedGHz;
 };
 

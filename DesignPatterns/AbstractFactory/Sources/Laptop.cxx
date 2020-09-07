@@ -1,9 +1,9 @@
 // Project includes
 #include "Laptop.hpp"
 
-Laptop::Laptop(std::string brandName,
-               std::string modelName,
-               LaptopCPU& cpu)
+Laptop::Laptop(const std::string brandName,
+               const std::string modelName,
+               LaptopCPU* cpu)
   : brandName(brandName),
     modelName(modelName),
     platformName("Laptop"),
@@ -13,6 +13,7 @@ Laptop::Laptop(std::string brandName,
 
 Laptop::~Laptop()
 {
+  delete cpu;
 }
 
 const std::string Laptop::getBrand()
@@ -30,7 +31,7 @@ const std::string Laptop::getPlatform()
   return platformName;
 }
 
-LaptopCPU& Laptop::getCPU()
+LaptopCPU* Laptop::getCPU()
 {
   return cpu;
 }

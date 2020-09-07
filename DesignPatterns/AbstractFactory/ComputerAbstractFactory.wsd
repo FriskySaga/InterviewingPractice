@@ -14,8 +14,8 @@ class Component
 class ComputerFactory
 {
   + ComputerFactory()
-  + createAndroid()
-  + createLaptop()
+  + makeAndroid()
+  + makeLaptop()
 }
 
 ' Android
@@ -27,12 +27,6 @@ class Android
   + getCPU()
 }
 
-class AndroidFactory
-{
-  + AndroidFactory()
-  + createCPU()
-}
-
 ' Laptop
 class Laptop
 {
@@ -40,12 +34,6 @@ class Laptop
   + getModel()
   + getPlatform()
   + getCPU()
-}
-
-class LaptopFactory
-{
-  + LaptopFactory()
-  + createCPU()
 }
 
 ' CPU
@@ -80,27 +68,25 @@ class LaptopCPU
 
 class CPUFactory
 {
+  + makeAndroidCPU()
+  + makeLaptopCPU()
 }
-
-Client -> ComputerFactory
-ComputerFactory o-- AndroidFactory
-ComputerFactory o-- LaptopFactory
 
 Component <|-- Android
 Component <|-- Laptop
 Component <|-- CPU
-
-AndroidFactory o-- Android
-Android o-- AndroidCPU
-
-LaptopFactory o-- Laptop
-Laptop o-- LaptopCPU
-
-AndroidFactory o-- CPUFactory
-LaptopFactory o-- CPUFactory
-CPUFactory o-- CPU
 CPU <|-- AndroidCPU
 CPU <|-- LaptopCPU
+
+Android o-- AndroidCPU
+Laptop o-- LaptopCPU
+
+ComputerFactory o-- Android
+ComputerFactory o-- Laptop
+ComputerFactory o-- CPUFactory
+CPUFactory o-- CPU
+
+Client -> ComputerFactory
 
 @enduml
 

@@ -1,6 +1,3 @@
-// C++ includes
-#include <iostream>
-
 // External includes
 #include <gtest/gtest.h>
 
@@ -73,13 +70,11 @@ TEST(AbstractFactoryTest, LaptopTest)
   const std::string laptopModelName("Elite Dragonfly");
   Laptop laptopComputer(laptopBrandName,
                         laptopModelName,
-                        *laptopCPU);
+                        laptopCPU);
   EXPECT_EQ(laptopBrandName, laptopComputer.getBrand());
   EXPECT_EQ(laptopModelName, laptopComputer.getModel());
   EXPECT_EQ(platformName, laptopComputer.getPlatform());
-  EXPECT_TRUE(*laptopCPU == laptopComputer.getCPU());
-
-  delete laptopCPU;
+  EXPECT_TRUE(laptopCPU == laptopComputer.getCPU());
 }
 
 TEST(AbstractFactoryTest, AndroidComputerFactoryTest)

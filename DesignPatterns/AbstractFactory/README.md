@@ -8,6 +8,7 @@ In this example, I have a Computer factory that creates various computer type fa
 
 ## Tools
 * C++ 14
+  * _Note that I programmed to a C convention and avoided using references_
 * CMake 3.16.3
 
 ## Resources

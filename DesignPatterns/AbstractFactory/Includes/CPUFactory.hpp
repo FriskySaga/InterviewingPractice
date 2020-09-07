@@ -7,16 +7,16 @@
 class CPUFactory
 {
 public:
-  AndroidCPU* makeAndroidCPU(std::string brandName,
-                             std::string modelName,
-                             uint16_t generationNumber,
-                             uint16_t numberOfCores,
-                             float maxClockSpeedGHz);
+  AndroidCPU* makeAndroidCPU(const std::string brandName,
+                             const std::string modelName,
+                             const uint16_t generationNumber,
+                             const uint16_t numberOfCores,
+                             const float maxClockSpeedGHz);
 
-  LaptopCPU* makeLaptopCPU(std::string brandName,
-                           std::string modelName,
-                           uint16_t generationNumber,
-                           uint16_t numberOfCores,
-                           float maxClockSpeedGHz);
+  LaptopCPU* makeLaptopCPU(const std::string brandName,
+                           const std::string modelName,
+                           const uint16_t generationNumber,
+                           const uint16_t numberOfCores,
+                           const float maxClockSpeedGHz);
 };
 

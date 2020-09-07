@@ -6,8 +6,8 @@
 class Android : public Component
 {
 public:
-  Android(std::string brandName,
-          std::string modelName,
+  Android(const std::string brandName,
+          const std::string modelName,
           AndroidCPU* cpu);
 
   virtual ~Android();
@@ -22,9 +22,9 @@ public:
 
 private:
   // Component attributes
-  std::string brandName;
-  std::string modelName;
-  std::string platformName;
+  const std::string brandName;
+  const std::string modelName;
+  const std::string platformName;
 
   // Android attributes
   AndroidCPU* cpu;

@@ -1,8 +1,8 @@
 // Project includes
 #include "Android.hpp"
 
-Android::Android(std::string brandName,
-                 std::string modelName,
+Android::Android(const std::string brandName,
+                 const std::string modelName,
                  AndroidCPU* cpu)
   : brandName(brandName),
     modelName(modelName),

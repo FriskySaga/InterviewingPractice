@@ -6,9 +6,9 @@
 class Laptop : public Component
 {
 public:
-  Laptop(std::string brandName,
-         std::string modelName,
-         LaptopCPU& cpu);
+  Laptop(const std::string brandName,
+         const std::string modelName,
+         LaptopCPU* cpu);
 
   virtual ~Laptop();
 
@@ -18,15 +18,15 @@ public:
   const std::string getPlatform();
 
   // Laptop attributes
-  LaptopCPU& getCPU();
+  LaptopCPU* getCPU();
 
 private:
   // Component attributes
-  std::string brandName;
-  std::string modelName;
-  std::string platformName;
+  const std::string brandName;
+  const std::string modelName;
+  const std::string platformName;
 
   // Laptop attributes
-  LaptopCPU& cpu;
+  LaptopCPU* cpu;
 };
 
