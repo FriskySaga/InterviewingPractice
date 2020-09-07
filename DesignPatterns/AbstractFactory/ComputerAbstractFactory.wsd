@@ -18,9 +18,17 @@ class ComputerFactory
   + makeLaptop()
 }
 
+class CPUFactory
+{
+  + CPUFactory()
+  + makeAndroidCPU()
+  + makeLaptopCPU()
+}
+
 ' Android
 class Android
 {
+  - Android()
   + getBrand()
   + getModel()
   + getPlatform()
@@ -30,6 +38,7 @@ class Android
 ' Laptop
 class Laptop
 {
+  - Laptop()
   + getBrand()
   + getModel()
   + getPlatform()
@@ -46,6 +55,7 @@ class CPU
 
 class AndroidCPU
 {
+  - AndroidCPU()
   + operator==()
   + getBrand()
   + getModel()
@@ -57,6 +67,7 @@ class AndroidCPU
 
 class LaptopCPU
 {
+  - LaptopCPU()
   + operator==()
   + getBrand()
   + getModel()
@@ -64,12 +75,6 @@ class LaptopCPU
   + getGeneration()
   + getNumberOfCores()
   + getMaxClockSpeedGHz()
-}
-
-class CPUFactory
-{
-  + makeAndroidCPU()
-  + makeLaptopCPU()
 }
 
 Component <|-- Android

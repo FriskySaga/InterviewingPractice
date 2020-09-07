@@ -5,16 +5,20 @@
 
 class LaptopCPU : public CPU
 {
-public:
+friend class Laptop;
+friend class CPUFactory;
+
+private:
   LaptopCPU(const std::string& brandName,
             const std::string& modelName,
             const uint16_t& generationNumber,
             const uint16_t& numberOfCores,
             const float& maxClockSpeedGHz);
 
+public:
   virtual ~LaptopCPU();
 
-  bool operator==(LaptopCPU* rhs) const;
+  bool operator==(LaptopCPU& rhs) const;
 
   // Component attributes
   std::string getBrand() const;

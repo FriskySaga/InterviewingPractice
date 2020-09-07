@@ -5,16 +5,20 @@
 
 class AndroidCPU : public CPU
 {
-public:
+friend class Android;
+friend class CPUFactory;
+
+private:
   AndroidCPU(const std::string& brandName,
              const std::string& modelName,
              const uint16_t& generationNumber,
              const uint16_t& numberOfCores,
              const float& maxClockSpeedGHz);
 
+public:
   virtual ~AndroidCPU();
 
-  bool operator==(AndroidCPU* rhs) const;
+  bool operator==(AndroidCPU& rhs) const;
 
   // Component attributes
   std::string getBrand() const;

@@ -28,6 +28,24 @@ Android* ComputerFactory::makeAndroid(const std::string& androidBrandName,
 
   return new Android(androidBrandName,
                      androidModelName,
-                     cpu); // udyr memory leak?
+                     cpu);
+}
+
+Laptop* ComputerFactory::makeLaptop(const std::string& laptopBrandName,
+                                    const std::string& laptopModelName,
+                                    const std::string& cpuBrandName,
+                                    const std::string& cpuModelName,
+                                    const uint16_t& cpuGenerationNumber,
+                                    const uint16_t& cpuNumberOfCores,
+                                    const float& cpuMaxClockSpeedGHz)
+{
+  LaptopCPU* cpu = cpuFactory->makeLaptopCPU(cpuBrandName,
+                                             cpuModelName,
+                                             cpuGenerationNumber,
+                                             cpuNumberOfCores,
+                                             cpuMaxClockSpeedGHz);
+  return new Laptop(laptopBrandName,
+                    laptopModelName,
+                    cpu);
 }
 

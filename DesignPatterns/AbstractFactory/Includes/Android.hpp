@@ -5,11 +5,14 @@
 
 class Android : public Component
 {
-public:
+friend class ComputerFactory;
+
+private:
   Android(const std::string& brandName,
           const std::string& modelName,
           AndroidCPU* cpu);
 
+public:
   virtual ~Android();
 
   // Component attributes

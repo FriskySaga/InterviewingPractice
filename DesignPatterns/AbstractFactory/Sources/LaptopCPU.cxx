@@ -19,14 +19,14 @@ LaptopCPU::~LaptopCPU()
 {
 }
 
-bool LaptopCPU::operator==(LaptopCPU* rhs) const
+bool LaptopCPU::operator==(LaptopCPU& rhs) const
 {
-  return this->getBrand() == rhs->getBrand() &&
-         this->getModel() == rhs->getModel() &&
-         this->getPlatform() == rhs->getPlatform() &&
-         this->getGeneration() == rhs->getGeneration() &&
-         this->getNumberOfCores() == rhs->getNumberOfCores() &&
-         this->getMaxClockSpeedGHz() == rhs->getMaxClockSpeedGHz();
+  return this->getBrand() == rhs.getBrand() &&
+         this->getModel() == rhs.getModel() &&
+         this->getPlatform() == rhs.getPlatform() &&
+         this->getGeneration() == rhs.getGeneration() &&
+         this->getNumberOfCores() == rhs.getNumberOfCores() &&
+         this->getMaxClockSpeedGHz() == rhs.getMaxClockSpeedGHz();
 }
 
 std::string LaptopCPU::getBrand() const

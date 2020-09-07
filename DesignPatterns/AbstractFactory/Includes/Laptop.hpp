@@ -5,11 +5,14 @@
 
 class Laptop : public Component
 {
-public:
+friend class ComputerFactory;
+
+private:
   Laptop(const std::string& brandName,
          const std::string& modelName,
          LaptopCPU* cpu);
 
+public:
   virtual ~Laptop();
 
   // Component attributes
