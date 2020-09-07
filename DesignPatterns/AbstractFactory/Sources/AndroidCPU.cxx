@@ -19,7 +19,7 @@ AndroidCPU::~AndroidCPU()
 {
 }
 
-const bool AndroidCPU::operator==(AndroidCPU* rhs)
+bool AndroidCPU::operator==(AndroidCPU* rhs) const
 {
   return this->getBrand() == rhs->getBrand() &&
          this->getModel() == rhs->getModel() &&
@@ -29,32 +29,32 @@ const bool AndroidCPU::operator==(AndroidCPU* rhs)
          this->getMaxClockSpeedGHz() == rhs->getMaxClockSpeedGHz();
 }
 
-const std::string AndroidCPU::getBrand()
+std::string AndroidCPU::getBrand() const
 {
   return brandName;
 }
 
-const std::string AndroidCPU::getModel()
+std::string AndroidCPU::getModel() const
 {
   return modelName;
 }
 
-const std::string AndroidCPU::getPlatform()
+std::string AndroidCPU::getPlatform() const
 {
   return platformName;
 }
 
-const uint16_t AndroidCPU::getGeneration()
+uint16_t AndroidCPU::getGeneration() const
 {
   return generationNumber;
 }
 
-const uint16_t AndroidCPU::getNumberOfCores()
+uint16_t AndroidCPU::getNumberOfCores() const
 {
   return numberOfCores;
 }
 
-const float AndroidCPU::getMaxClockSpeedGHz()
+float AndroidCPU::getMaxClockSpeedGHz() const
 {
   return maxClockSpeedGHz;
 }

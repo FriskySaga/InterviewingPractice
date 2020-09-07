@@ -13,12 +13,12 @@ public:
   virtual ~Android();
 
   // Component attributes
-  const std::string getBrand();
-  const std::string getModel();
-  const std::string getPlatform();
+  std::string getBrand() const;
+  std::string getModel() const;
+  std::string getPlatform() const;
 
   // Android attributes
-  AndroidCPU* getCPU();
+  AndroidCPU* getCPU() const;
 
 private:
   // Component attributes

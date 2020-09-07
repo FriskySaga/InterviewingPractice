@@ -14,17 +14,17 @@ public:
 
   virtual ~AndroidCPU();
 
-  const bool operator==(AndroidCPU* rhs);
+  bool operator==(AndroidCPU* rhs) const;
 
   // Component attributes
-  const std::string getBrand();
-  const std::string getModel();
-  const std::string getPlatform();
+  std::string getBrand() const;
+  std::string getModel() const;
+  std::string getPlatform() const;
 
   // CPU attributes
-  const uint16_t getGeneration();
-  const uint16_t getNumberOfCores();
-  const float getMaxClockSpeedGHz();
+  uint16_t getGeneration() const;
+  uint16_t getNumberOfCores() const;
+  float getMaxClockSpeedGHz() const;
 
 private:
   // Component attributes

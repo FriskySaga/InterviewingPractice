@@ -16,17 +16,17 @@ Laptop::~Laptop()
   delete cpu;
 }
 
-const std::string Laptop::getBrand()
+std::string Laptop::getBrand() const
 {
   return brandName;
 }
 
-const std::string Laptop::getModel()
+std::string Laptop::getModel() const
 {
   return modelName;
 }
 
-const std::string Laptop::getPlatform()
+std::string Laptop::getPlatform() const
 {
   return platformName;
 }

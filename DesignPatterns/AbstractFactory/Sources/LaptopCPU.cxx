@@ -19,7 +19,7 @@ LaptopCPU::~LaptopCPU()
 {
 }
 
-const bool LaptopCPU::operator==(LaptopCPU* rhs)
+bool LaptopCPU::operator==(LaptopCPU* rhs) const
 {
   return this->getBrand() == rhs->getBrand() &&
          this->getModel() == rhs->getModel() &&
@@ -29,32 +29,32 @@ const bool LaptopCPU::operator==(LaptopCPU* rhs)
          this->getMaxClockSpeedGHz() == rhs->getMaxClockSpeedGHz();
 }
 
-const std::string LaptopCPU::getBrand()
+std::string LaptopCPU::getBrand() const
 {
   return brandName;
 }
 
-const std::string LaptopCPU::getModel()
+std::string LaptopCPU::getModel() const
 {
   return modelName;
 }
 
-const std::string LaptopCPU::getPlatform()
+std::string LaptopCPU::getPlatform() const
 {
   return platformName;
 }
 
-const uint16_t LaptopCPU::getGeneration()
+uint16_t LaptopCPU::getGeneration() const
 {
   return generationNumber;
 }
 
-const uint16_t LaptopCPU::getNumberOfCores()
+uint16_t LaptopCPU::getNumberOfCores() const
 {
   return numberOfCores;
 }
 
-const float LaptopCPU::getMaxClockSpeedGHz()
+float LaptopCPU::getMaxClockSpeedGHz() const
 {
   return maxClockSpeedGHz;
 }

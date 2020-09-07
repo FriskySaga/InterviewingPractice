@@ -6,8 +6,8 @@
 class CPU : public Component
 {
 public:
-  virtual const uint16_t getGeneration() = 0;
-  virtual const uint16_t getNumberOfCores() = 0;
-  virtual const float getMaxClockSpeedGHz() = 0;
+  virtual uint16_t getGeneration() const = 0;
+  virtual uint16_t getNumberOfCores() const = 0;
+  virtual float getMaxClockSpeedGHz() const = 0;
 };
 

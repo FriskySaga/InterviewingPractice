@@ -13,9 +13,9 @@ public:
   virtual ~Laptop();
 
   // Component attributes
-  const std::string getBrand();
-  const std::string getModel();
-  const std::string getPlatform();
+  std::string getBrand() const;
+  std::string getModel() const;
+  std::string getPlatform() const;
 
   // Laptop attributes
   LaptopCPU* getCPU();

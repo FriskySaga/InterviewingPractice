@@ -16,22 +16,22 @@ Android::~Android()
   delete cpu;
 }
 
-const std::string Android::getBrand()
+std::string Android::getBrand() const
 {
   return brandName;
 }
 
-const std::string Android::getModel()
+std::string Android::getModel() const
 {
   return modelName;
 }
 
-const std::string Android::getPlatform()
+std::string Android::getPlatform() const
 {
   return platformName;
 }
 
-AndroidCPU* Android::getCPU()
+AndroidCPU* Android::getCPU() const
 {
   return cpu;
 }
