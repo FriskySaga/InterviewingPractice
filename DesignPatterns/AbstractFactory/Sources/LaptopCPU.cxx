@@ -1,6 +1,3 @@
-// C++ includes
-#include <string>
-
 // Project includes
 #include "LaptopCPU.hpp"
 
