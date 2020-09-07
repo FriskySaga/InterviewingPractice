@@ -12,13 +12,13 @@ public:
 
   virtual ~ComputerFactory();
 
-  Android* makeAndroid(std::string androidBrandName,
-                       std::string androidModelName,
-                       std::string cpuBrandName,
-                       std::string cpuModelName,
-                       uint16_t cpuGenerationNumber,
-                       uint16_t cpuNumberOfCores,
-                       float cpuMaxClockSpeedGHz);
+  Android* makeAndroid(const std::string& androidBrandName,
+                       const std::string& androidModelName,
+                       const std::string& cpuBrandName,
+                       const std::string& cpuModelName,
+                       const uint16_t& cpuGenerationNumber,
+                       const uint16_t& cpuNumberOfCores,
+                       const float& cpuMaxClockSpeedGHz);
 
 private:
   CPUFactory* cpuFactory;

@@ -6,11 +6,11 @@
 class LaptopCPU : public CPU
 {
 public:
-  LaptopCPU(const std::string brandName,
-            const std::string modelName,
-            const uint16_t generationNumber,
-            const uint16_t numberOfCores,
-            const float maxClockSpeedGHz);
+  LaptopCPU(const std::string& brandName,
+            const std::string& modelName,
+            const uint16_t& generationNumber,
+            const uint16_t& numberOfCores,
+            const float& maxClockSpeedGHz);
 
   virtual ~LaptopCPU();
 

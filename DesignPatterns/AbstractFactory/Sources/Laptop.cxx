@@ -1,8 +1,8 @@
 // Project includes
 #include "Laptop.hpp"
 
-Laptop::Laptop(const std::string brandName,
-               const std::string modelName,
+Laptop::Laptop(const std::string& brandName,
+               const std::string& modelName,
                LaptopCPU* cpu)
   : brandName(brandName),
     modelName(modelName),

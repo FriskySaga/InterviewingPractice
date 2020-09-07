@@ -12,13 +12,13 @@ ComputerFactory::~ComputerFactory()
   delete cpuFactory;
 }
 
-Android* ComputerFactory::makeAndroid(std::string androidBrandName,
-                                      std::string androidModelName,
-                                      std::string cpuBrandName,
-                                      std::string cpuModelName,
-                                      uint16_t cpuGenerationNumber,
-                                      uint16_t cpuNumberOfCores,
-                                      float cpuMaxClockSpeedGHz)
+Android* ComputerFactory::makeAndroid(const std::string& androidBrandName,
+                                      const std::string& androidModelName,
+                                      const std::string& cpuBrandName,
+                                      const std::string& cpuModelName,
+                                      const uint16_t& cpuGenerationNumber,
+                                      const uint16_t& cpuNumberOfCores,
+                                      const float& cpuMaxClockSpeedGHz)
 {
   AndroidCPU* cpu = cpuFactory->makeAndroidCPU(cpuBrandName,
                                                cpuModelName,

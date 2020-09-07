@@ -6,11 +6,11 @@
 class AndroidCPU : public CPU
 {
 public:
-  AndroidCPU(const std::string brandName,
-             const std::string modelName,
-             const uint16_t generationNumber,
-             const uint16_t numberOfCores,
-             const float maxClockSpeedGHz);
+  AndroidCPU(const std::string& brandName,
+             const std::string& modelName,
+             const uint16_t& generationNumber,
+             const uint16_t& numberOfCores,
+             const float& maxClockSpeedGHz);
 
   virtual ~AndroidCPU();
 

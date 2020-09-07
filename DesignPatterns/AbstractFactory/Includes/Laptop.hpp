@@ -6,8 +6,8 @@
 class Laptop : public Component
 {
 public:
-  Laptop(const std::string brandName,
-         const std::string modelName,
+  Laptop(const std::string& brandName,
+         const std::string& modelName,
          LaptopCPU* cpu);
 
   virtual ~Laptop();
