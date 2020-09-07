@@ -6,6 +6,7 @@ Laptop::Laptop(std::string brandName,
                LaptopCPU& cpu)
   : brandName(brandName),
     modelName(modelName),
+    platformName("Laptop"),
     cpu(cpu)
 {
 }

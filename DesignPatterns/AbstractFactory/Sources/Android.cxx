@@ -3,15 +3,17 @@
 
 Android::Android(std::string brandName,
                  std::string modelName,
-                 AndroidCPU& cpu)
+                 AndroidCPU* cpu)
   : brandName(brandName),
     modelName(modelName),
+    platformName("Android"),
     cpu(cpu)
 {
 }
 
 Android::~Android()
 {
+  delete cpu;
 }
 
 const std::string Android::getBrand()
@@ -29,7 +31,7 @@ const std::string Android::getPlatform()
   return platformName;
 }
 
-AndroidCPU& Android::getCPU()
+AndroidCPU* Android::getCPU()
 {
   return cpu;
 }
