@@ -175,7 +175,13 @@ def forwardReference(s: str) -> bool:
   """
   return re.search(r'^(\2tic|(tac)){2,}$', s) # oneonetwo
 
+def negativeLookahead(s: str) -> bool:
+  """Match all characters which are not immediately followed by that same character.
+  """
+  return re.search(r'(.)(?!\1)', s)
+
 if __name__ == "__main__":
+  assert negativeLookahead('goooo') # Matches 'g' and last 'o'
   # assert forwardReference('tactactic') # Works in Perl
   # assert branchResetGroups('12---34---56---78') # Works in Perl
   assert backreferenceToFailedGroups('12345678')
