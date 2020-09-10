@@ -1,2 +1,6 @@
 # Ignore executables
 *.out
+
+# Ignore workspace
+Workspace.code-workspace
+
