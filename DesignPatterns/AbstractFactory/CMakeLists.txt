@@ -10,7 +10,6 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include_directories(Includes)
-add_subdirectory(Sources)
 file(GLOB SOURCES Sources/*.cxx)
 
 find_package(GTest REQUIRED)
