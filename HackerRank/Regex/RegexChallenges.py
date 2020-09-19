@@ -180,7 +180,25 @@ def negativeLookahead(s: str) -> bool:
   """
   return re.search(r'(.)(?!\1)', s)
 
+def positiveLookahead(s: str) -> bool:
+  """Match all occurrences of 'o' followed by 'oo'.
+  """
+  return re.search(r'o(?=oo)', s)
+
+def positiveLookbehind(s: str) -> bool:
+  """Match all occurrences of a digit that is immediately preceded by an odd digit.
+  """
+  return re.search(r'(?<=[13579])\d', s)
+
+def negativeLookbehind(s: str) -> bool:
+  """Match all occurrences of characters that are not immediately preceded by a vowel.
+  """
+  return re.search(r'(?<![aeiouAEIOU]).', s)
+
 if __name__ == "__main__":
+  assert negativeLookbehind('pH')
+  assert positiveLookbehind('38')
+  assert positiveLookahead('booo')
   assert negativeLookahead('goooo') # Matches 'g' and last 'o'
   # assert forwardReference('tactactic') # Works in Perl
   # assert branchResetGroups('12---34---56---78') # Works in Perl
