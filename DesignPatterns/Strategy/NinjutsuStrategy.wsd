@@ -1,0 +1,10 @@
+@startuml Ninja
+
+skinparam Monochrome reverse
+
+title Strategy pattern for casting ninjutsu
+
+
+
+@enduml
+
