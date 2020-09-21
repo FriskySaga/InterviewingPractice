@@ -38,7 +38,8 @@ TEST(NinjaClientTest, StrategicalTest)
   greatFireballJutsu->changeHandSeals(GreatFireballHandSeals::Itachi);
   EXPECT_EQ(GreatFireballHandSeals::Itachi, greatFireballJutsu->getHandSeals());
 
-  // Kakashi can't use Wood Style techniques
+  // Leverage strategy pattern here to change the spell to cast
+  // NOTE: Kakashi can't use Wood Style techniques
   Kakashi.cast(new FourPillarHouse(FourPillarHouseHandSeals::StandardForm));
   EXPECT_TRUE(testing::internal::GetCapturedStdout().find("Ninja cannot use Chakra Nature: WOOD\n") != std::string::npos);
 }
