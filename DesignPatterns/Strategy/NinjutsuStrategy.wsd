@@ -1,10 +1,42 @@
-@startuml Ninja
+@startuml NinjutsuStrategy
 
 skinparam Monochrome reverse
 
 title Strategy pattern for casting ninjutsu
 
+class FourPillarHouse
+{
+  + FourPillarHouse()
+  + getNature()
+}
 
+class GreatFireball
+{
+  + GreatFireball()
+  + getNature()
+}
+
+class Ninja
+{
+  + Ninja()
+  + ~Ninja()
+  + cast(Ninjutsu*)
+  + Ninjutsu* getNinjutsu()
+}
+
+class Ninjutsu
+{
+  + getHandSeals()
+  + changeHandSeals()
+  + {abstract} getNature()
+  --
+  # Ninjutsu()
+}
+
+StrategyClient -> Ninja : Ninja::cast()
+Ninja  "Aggregation because of Rock Lee" o-- Ninjutsu
+class FourPillarHouse implements Ninjutsu
+class GreatFireball implements Ninjutsu
 
 @enduml
 

@@ -4,7 +4,7 @@ This project is a showcase of the Strategy pattern, which is a Structural patter
 # Synopsis
 Cast a [ninjutsu](https://naruto.fandom.com/wiki/Ninjutsu).
 
-![Ninjutsu Strategy Pattern Diagram](Ninja.png)
+![Ninjutsu Strategy Pattern Diagram](NinjutsuStrategy.png)
 
 ## Tools
 * C++ 14
