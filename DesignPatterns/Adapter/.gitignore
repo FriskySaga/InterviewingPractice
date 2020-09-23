@@ -1,0 +1,7 @@
+# Ignore VS Code files
+.vscode/
+Workspace.code-workspace
+
+# Ignore build files
+Build/
+

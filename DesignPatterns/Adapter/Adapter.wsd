@@ -1,0 +1,9 @@
+@startuml Adapter
+
+skinparam Monochrome reverse
+
+title Adapter pattern for udyr
+
+
+@enduml
+
