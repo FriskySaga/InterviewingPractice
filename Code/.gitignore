@@ -1,3 +1,6 @@
-# VS Code Extensions
-Workspace.code-workspace
+# Ignore executables
+*.exe
+*.out
 
+# VS Code Settings
+Workspace.code-workspace
