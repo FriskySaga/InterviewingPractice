@@ -32,7 +32,7 @@
  */
 
 #include <cassert>
-#include <string>
+#include <cstdint>
 #include <vector>
 
 using namespace std;
@@ -42,7 +42,16 @@ int findNumbers(vector<int>& nums)
   int numEvens = 0;
   for (const auto& iter : nums)
   {
-    if (to_string(iter).length() % 2 == 0)
+    int number = iter;
+    uint16_t numDigits = 0;
+    
+    while (number != 0)
+    {
+      number /= 10;
+      ++numDigits;
+    }
+
+    if (numDigits % 2 == 0)
     {
       ++numEvens;
     }
