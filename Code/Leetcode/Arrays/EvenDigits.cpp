@@ -33,6 +33,7 @@
 
 #include <cassert>
 #include <cstdint>
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -61,6 +62,9 @@ int findNumbers(vector<int>& nums)
 
 int main()
 {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
   vector<int> first{12,345,2,6,7896};
   assert(findNumbers(first) == 2);
 

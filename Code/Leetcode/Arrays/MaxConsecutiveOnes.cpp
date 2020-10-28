@@ -17,6 +17,7 @@
  */
 
 #include <cassert>
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -50,17 +51,20 @@ int findMaxConsecutiveOnes(vector<int>& nums)
 
 int main()
 {
-    vector<int> first{1,1,0,1,1,1};
-    assert(findMaxConsecutiveOnes(first) == 3);
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
 
-    vector<int> second{1};
-    assert(findMaxConsecutiveOnes(second) == 1);
+  vector<int> first{1,1,0,1,1,1};
+  assert(findMaxConsecutiveOnes(first) == 3);
 
-    vector<int> third{0};
-    assert(findMaxConsecutiveOnes(third) == 0);
+  vector<int> second{1};
+  assert(findMaxConsecutiveOnes(second) == 1);
 
-    vector<int> fourth;
-    assert(findMaxConsecutiveOnes(fourth) == 0);
+  vector<int> third{0};
+  assert(findMaxConsecutiveOnes(third) == 0);
 
-    return 0;
+  vector<int> fourth;
+  assert(findMaxConsecutiveOnes(fourth) == 0);
+
+  return 0;
 }
