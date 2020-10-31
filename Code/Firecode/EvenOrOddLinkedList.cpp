@@ -1,3 +1,9 @@
+/**
+ * Firecode Level 2
+ * 
+ * Determine if a given linked list has an even or odd number of nodes.
+ */
+
 #include <cassert>
 #include <cstdint>
 #include <iostream>
