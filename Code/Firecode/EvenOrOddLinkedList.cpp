@@ -8,12 +8,15 @@
 #include <cstdint>
 #include <iostream>
 
+using namespace std;
+
 struct ListNode
 {
   struct ListNode* next;
+  int value;
 };
 
-bool isListEven(ListNode* head)
+bool isListEven1(ListNode* head)
 {
   uint16_t numNodes = 0;
 
@@ -26,17 +29,33 @@ bool isListEven(ListNode* head)
   return numNodes % 2 == 0 ? true: false;
 }
 
+bool isListEven(ListNode* head)
+{
+  bool hasEvenNodes = true;
+
+  while (head != NULL)
+  {
+    head = head->next;
+    hasEvenNodes = !hasEvenNodes;
+  }
+
+  return hasEvenNodes;
+}
+
 int main()
 {
   ListNode* first = new ListNode();
   ListNode* second = new ListNode();
 
+  first->value = 1;
   first->next = second;
+  second->value = 2;
   second->next = NULL;
   assert(isListEven(first));
 
   ListNode* third = new ListNode();
   second->next = third;
+  third->value = 3;
   third->next = NULL;
   assert(!isListEven(first));
 
