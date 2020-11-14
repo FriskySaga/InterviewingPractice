@@ -16,6 +16,22 @@ using namespace std;
 int maxGainAdjacent(int arr[], int sz)
 {
   int maxGain = 0;
+  for (int i = 1; i < sz; ++i)
+  {
+    int diff = arr[i] - arr[i-1];
+    if (diff > maxGain)
+    {
+      maxGain = diff;
+    }
+  }
+
+  return maxGain;
+}
+
+// O(n^2) solution
+int maxGainN2(int arr[], int sz)
+{
+  int maxGain = 0;
   for (int i = 0; i < sz; ++i)
   {
     for (int j = 0; j < sz; ++j)
