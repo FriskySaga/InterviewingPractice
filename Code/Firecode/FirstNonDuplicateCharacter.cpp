@@ -1,4 +1,6 @@
 /**
+ * Firecode Level 2
+ * 
  * Find the first non-duplicate character in a string.
  * Return '0' if no unique character is found.
  * 
