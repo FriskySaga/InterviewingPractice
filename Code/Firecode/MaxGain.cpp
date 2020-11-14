@@ -16,21 +16,45 @@ using namespace std;
 int maxGainAdjacent(int arr[], int sz)
 {
   int maxGain = 0;
-  for (int i = 1; i < sz; ++i)
+  for (int i = 0; i < sz; ++i)
   {
-    int diff = arr[i] - arr[i-1];
-    if (diff > maxGain)
+    for (int j = 0; j < sz; ++j)
     {
-      maxGain = diff;
+      if (j > i)
+      {
+        int diff = arr[j] - arr[i];
+        if (diff > maxGain)
+        {
+          maxGain = diff;
+        }
+      }
     }
   }
-
   return maxGain;
 }
 
 int maxGain(int arr[], int sz)
 {
-  return 0;
+  int min = 0, maxGain = 0;
+
+  if (sz > 1)
+  {
+    min = arr[0];
+  }
+
+  for (int i = 1; i < sz; ++i)
+  {
+    if (arr[i] < min)
+    {
+      min = arr[i];
+    }
+    else if (arr[i] - min > maxGain)
+    {
+      maxGain = arr[i] - min;
+    }
+  }
+  
+  return maxGain;
 }
 
 int main()
@@ -48,10 +72,10 @@ int main()
   assert(maxGain(d,2) == 1);
 
   int e[3] = {-1,0,2};
-  assert(maxGain(e, 3) == 2);
+  assert(maxGain(e, 3) == 3);
 
   int f[6] = {4, 25, 5, 10, 26, -90};
-  assert(maxGain(f, 6) == 21);
+  assert(maxGain(f, 6) == 22);
 
   int g[5] = {0, 50, 10, 100, 30};
   assert(maxGain(g, 5) == 100);
