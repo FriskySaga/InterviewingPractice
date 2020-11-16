@@ -51,12 +51,12 @@ int maxGainN2(int arr[], int sz)
 
 int maxGain(int arr[], int sz)
 {
-  int min = 0, maxGain = 0;
-
-  if (sz > 1)
+  if (sz <= 1)
   {
-    min = arr[0];
+    return 0;
   }
+
+  int maxGain = 0, min = arr[0];
 
   for (int i = 1; i < sz; ++i)
   {
@@ -90,10 +90,10 @@ int main()
   int e[3] = {-1,0,2};
   assert(maxGain(e, 3) == 3);
 
-  int f[6] = {4, 25, 5, 10, 26, -90};
+  int f[6] = {25, 5, 4, 10, 26, -90};
   assert(maxGain(f, 6) == 22);
 
-  int g[5] = {0, 50, 10, 100, 30};
+  int g[5] = {50, 0, 10, 100, 30};
   assert(maxGain(g, 5) == 100);
 
   return 0;
