@@ -5,7 +5,6 @@
  */
 
 #include <cassert>
-#include <cstdint>
 #include <iostream>
 
 using namespace std;
@@ -16,9 +15,10 @@ struct ListNode
   int value;
 };
 
+// Initial solution
 bool isListEven1(ListNode* head)
 {
-  uint16_t numNodes = 0;
+  int numNodes = 0;
 
   while(head != NULL)
   {
@@ -29,6 +29,7 @@ bool isListEven1(ListNode* head)
   return numNodes % 2 == 0 ? true: false;
 }
 
+// Slightly more clever solution
 bool isListEven(ListNode* head)
 {
   bool hasEvenNodes = true;
