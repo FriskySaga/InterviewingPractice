@@ -24,11 +24,11 @@ struct TreeNode
  * Firecode Description:
  * This function takes in a node of a tree and
  * returns the number of nodes on the longest downward path between that node and any leaf.
- * If the node is NULL, returns 0. 
+ * If the node is nullptr, returns 0. 
  */
 int getTreeHeight(TreeNode* root)
 {
-  if (root == NULL)
+  if (root == nullptr)
   {
     return 0;
   }
@@ -41,9 +41,9 @@ int getTreeHeight(TreeNode* root)
 
 void traceBSTValidation(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
 {
-  string rootStr = root != NULL ? to_string(root->value) : "NULL";
-  string minNodeStr = minNode != NULL ? to_string(minNode->value) : "NULL";
-  string maxNodeStr = maxNode != NULL ? to_string(maxNode->value) : "NULL";
+  string rootStr = root != nullptr ? to_string(root->value) : "nullptr";
+  string minNodeStr = minNode != nullptr ? to_string(minNode->value) : "nullptr";
+  string maxNodeStr = maxNode != nullptr ? to_string(maxNode->value) : "nullptr";
 
   cout << "Root: " << rootStr << ", Min: " << minNodeStr << ", Max: " << maxNodeStr << endl;
 }
@@ -52,13 +52,13 @@ bool validateBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
 {
   traceBSTValidation(root, minNode, maxNode);
 
-  if (root == NULL)
+  if (root == nullptr)
   {
     return true;
   }
 
-  if ((minNode != NULL && root->value <= minNode->value) ||
-      (maxNode != NULL && root->value >= maxNode->value))
+  if ((minNode != nullptr && root->value <= minNode->value) ||
+      (maxNode != nullptr && root->value >= maxNode->value))
   {
     return false;
   }
@@ -69,8 +69,8 @@ bool validateBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
 bool isValidBST(TreeNode* root)
 {
   cout << "===================================" << endl;
-  TreeNode* prev = NULL;
-  return validateBST(root, NULL, NULL);
+  TreeNode* prev = nullptr;
+  return validateBST(root, nullptr, nullptr);
 }
 
 int main()
@@ -91,14 +91,14 @@ int main()
   //  1   3
   //       \
   //        4
-  first->left = NULL;
-  second->right = NULL;
+  first->left = nullptr;
+  second->right = nullptr;
   second->left = first;
   second->right = third;
-  third->left = NULL;
+  third->left = nullptr;
   third->right = fourth;
-  fourth->left = NULL;
-  fourth->right = NULL;
+  fourth->left = nullptr;
+  fourth->right = nullptr;
 
   assert(getTreeHeight(second) == 3);
   assert(isValidBST(second));
@@ -113,18 +113,18 @@ int main()
   second->left = first;
   
   first->value = 15;
-  first->left = NULL;
+  first->left = nullptr;
   first->right = third;
 
   third->value = 30;
-  third->left = NULL;
-  third->right = NULL;
+  third->left = nullptr;
+  third->right = nullptr;
 
   second->right = fourth;
 
   fourth->value = 40;
-  fourth->left = NULL;
-  fourth->right = NULL;
+  fourth->left = nullptr;
+  fourth->right = nullptr;
 
   assert(getTreeHeight(second) == 3);
   assert(!isValidBST(second));
@@ -138,13 +138,13 @@ int main()
   //   /
   //  4
   first->left = second;
-  first->right = NULL;
+  first->right = nullptr;
   second->left = third;
-  second->right = NULL;
+  second->right = nullptr;
   third->left = fourth;
-  third->right = NULL;
-  fourth->left = NULL;
-  fourth->right = NULL;
+  third->right = nullptr;
+  fourth->left = nullptr;
+  fourth->right = nullptr;
 
   assert(getTreeHeight(first) == 4);
   assert(!isValidBST(second));
@@ -193,25 +193,25 @@ int main()
   twenty->right = twentytwo;
   ten->left = five;
   ten->right = twelve;
-  five->left = NULL;
-  five->right = NULL;
-  twelve->left = NULL;
-  twelve->right = NULL;
-  twentytwo->left = NULL;
-  twentytwo->right = NULL;
+  five->left = nullptr;
+  five->right = nullptr;
+  twelve->left = nullptr;
+  twelve->right = nullptr;
+  twentytwo->left = nullptr;
+  twentytwo->right = nullptr;
   thirtysix->left = thirty;
   thirtysix->right = forty;
   thirty->left = twentyeight;
-  thirty->right = NULL;
-  twentyeight->left = NULL;
-  twentyeight->right = NULL;
+  thirty->right = nullptr;
+  twentyeight->left = nullptr;
+  twentyeight->right = nullptr;
   forty->left = thirtyeight;
   forty->right = fortyeight;
-  thirtyeight->left = NULL;
-  thirtyeight->right = NULL;
-  fortyeight->left = NULL;
-  fortyeight->right = NULL;
-  assert(getTreeHeight(first) == 4);
+  thirtyeight->left = nullptr;
+  thirtyeight->right = nullptr;
+  fortyeight->left = nullptr;
+  fortyeight->right = nullptr;
+  assert(getTreeHeight(twentyfive) == 4);
   assert(isValidBST(twentyfive));
 
   delete twenty;

@@ -1,1 +1,3 @@
+# Ignore Valgrind output
+valgrind-out.txt
 
