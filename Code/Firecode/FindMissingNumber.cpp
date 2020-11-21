@@ -13,8 +13,6 @@
 #include <cassert>
 #include <iostream>
 
-using namespace std;
-
 int findMissingNumber(int arr[], int n) 
 {
   for (int i = 0; i < n; ++i)

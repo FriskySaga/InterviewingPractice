@@ -14,11 +14,9 @@
 #include <string>
 #include <unordered_map>
 
-using namespace std;
-
-char firstNonRepeating(string str)
+char firstNonRepeating(std::string str)
 {
-  unordered_map<char, unsigned int> hm;
+  std::unordered_map<char, unsigned int> hm;
 
   // Count occurrences of each character
   for (const auto c : str)

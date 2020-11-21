@@ -10,8 +10,6 @@
 #include <cassert>
 #include <iostream>
 
-using namespace std;
-
 // Computes the maximum gain for adjacent numbers
 int maxGainAdjacent(int arr[], int sz)
 {

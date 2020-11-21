@@ -51,8 +51,6 @@
 
 #include <iostream>
 
-using namespace std;
-
 int* selectionSortArray(int arr[], int size)
 {
   int left, right;
@@ -69,7 +67,7 @@ int* selectionSortArray(int arr[], int size)
 
     if (rightMin != left)
     {
-      swap(arr[left], arr[rightMin]);
+      std::swap(arr[left], arr[rightMin]);
     }
   }
   return arr;
@@ -81,8 +79,8 @@ int main()
   selectionSortArray(a, 5);
   for (int i = 0; i < 5; ++i)
   {
-    cout << a[i] << " ";
+    std::cout << a[i] << " ";
   }
-  cout << endl;
+  std::cout << std::endl;
   return 0;
 }

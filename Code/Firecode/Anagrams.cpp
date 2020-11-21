@@ -10,12 +10,10 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-bool isAnagram(string input1, string input2)
+bool isAnagram(std::string input1, std::string input2)
 {
-  sort(input1.begin(), input1.end());
-  sort(input2.begin(), input2.end());
+  std::sort(input1.begin(), input1.end());
+  std::sort(input2.begin(), input2.end());
 
   return input1 == input2;
 }

@@ -8,8 +8,6 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 struct TreeNode
 {
   int value;
@@ -41,11 +39,11 @@ int getTreeHeight(TreeNode* root)
 
 void traceBSTValidation(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
 {
-  string rootStr = root != nullptr ? to_string(root->value) : "nullptr";
-  string minNodeStr = minNode != nullptr ? to_string(minNode->value) : "nullptr";
-  string maxNodeStr = maxNode != nullptr ? to_string(maxNode->value) : "nullptr";
+  std::string rootStr = root != nullptr ? std::to_string(root->value) : "nullptr";
+  std::string minNodeStr = minNode != nullptr ? std::to_string(minNode->value) : "nullptr";
+  std::string maxNodeStr = maxNode != nullptr ? std::to_string(maxNode->value) : "nullptr";
 
-  cout << "Root: " << rootStr << ", Min: " << minNodeStr << ", Max: " << maxNodeStr << endl;
+  std::cout << "Root: " << rootStr << ", Min: " << minNodeStr << ", Max: " << maxNodeStr << std::endl;
 }
 
 bool validateBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
@@ -68,7 +66,7 @@ bool validateBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
 
 bool isValidBST(TreeNode* root)
 {
-  cout << "===================================" << endl;
+  std::cout << "===================================" << std::endl;
   TreeNode* prev = nullptr;
   return validateBST(root, nullptr, nullptr);
 }
