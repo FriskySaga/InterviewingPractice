@@ -7,6 +7,7 @@
 #include <cassert>
 #include <iostream>
 #include <string>
+#include <vector>
 
 struct TreeNode
 {
@@ -70,6 +71,22 @@ bool isValidBST(TreeNode* root)
   return validateBST(root, nullptr, nullptr);
 }
 
+// Example:  
+//      1
+//     / \
+//    2   3     ==> 1245367
+//   / \ / \
+//  4  5 6  7 
+void preorder(TreeNode* root)
+{
+  if (root != NULL)
+  {
+    std::cout << root->value;
+    preorder(root->left);
+    preorder(root->right);
+  }
+}
+
 int main()
 {
   TreeNode* first = new TreeNode();
@@ -99,6 +116,7 @@ int main()
 
   assert(getTreeHeight(second) == 3);
   assert(isValidBST(second));
+  preorder(first); // 1234
 
   // Valid BST
   //     20
