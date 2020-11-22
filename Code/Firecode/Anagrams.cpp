@@ -5,17 +5,19 @@
  * An anagram is a string formed by rearranging the letters of another string.
  */
 
-#include <algorithm>
 #include <cassert>
 #include <iostream>
 #include <string>
+#include <unordered_map>
 
 bool isAnagram(std::string input1, std::string input2)
 {
-  std::sort(input1.begin(), input1.end());
-  std::sort(input2.begin(), input2.end());
-
-  return input1 == input2;
+  std::unordered_map<char, unsigned int> hm;
+  for (auto const& c : input1) ++hm[c];
+  for (auto const& c : input2) --hm[c];
+  for (auto const& x : hm)
+    if (x.second) return false;
+  return true;
 }
 
 int main()

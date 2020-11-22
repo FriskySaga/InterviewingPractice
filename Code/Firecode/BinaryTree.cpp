@@ -38,10 +38,8 @@ int getTreeHeight(TreeNode* root)
   return lHeight > rHeight ? lHeight + 1 : rHeight + 1;
 }
 
-bool validateBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
+bool isValidBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
 {
-  traceBSTValidation(root, minNode, maxNode);
-
   if (root == nullptr)
   {
     return true;
@@ -53,12 +51,12 @@ bool validateBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
     return false;
   }
 
-  return validateBST(root->left, minNode, root) && validateBST(root->right, root, maxNode);
+  return isValidBST(root->left, minNode, root) && isValidBST(root->right, root, maxNode);
 }
 
-bool isValidBST(TreeNode* root)
+bool validateBST(TreeNode* root)
 {
-  return validateBST(root, nullptr, nullptr);
+  return isValidBST(root, nullptr, nullptr);
 }
 
 // Example:  
