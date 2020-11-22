@@ -67,7 +67,6 @@ bool validateBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
 bool isValidBST(TreeNode* root)
 {
   std::cout << "===================================" << std::endl;
-  TreeNode* prev = nullptr;
   return validateBST(root, nullptr, nullptr);
 }
 
