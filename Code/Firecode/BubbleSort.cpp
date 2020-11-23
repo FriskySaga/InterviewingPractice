@@ -2,21 +2,6 @@
  * Firecode Level 2
  */
 
-// Write a function that takes in an array of ints and the size of the array and
-// uses the Bubble Sort algorithm to sort the array in ascending order. The function
-// should return the same, in-place sorted array.
-
-
-// Note: Bubble sort is one of the most inefficient ways to sort a large array of
-// integers. Nevertheless, it is an interview favorite. Bubble sort has a time
-// complexity of O(n2). However, if the sample size is small, bubble sort provides a
-// simple implementation of a classic sorting algorithm.
-
-// Examples:
-
-// bubble_sort_array({5,4,3},3) -> {3,4,5} bubble_sort_array({3},1) -> {3}
-// bubble_sort_array({},0) -> {}
-
 // Bubble sort, is a simple sorting algorithm that works by repeatedly stepping
 // through the list to be sorted, comparing each pair of adjacent items and swapping
 // them if they are in the wrong order. The pass through the list is repeated until
@@ -49,6 +34,19 @@
 // From Wikipedia, the free encyclopedia. Big-O notation Worst case performance
 // О(n2) Best case performance  O(n) Average case performance   О(n2) Worst case
 // space complexity  O(1) 
+
+// Write a function that takes in an array of ints and the size of the array and
+// uses the Bubble Sort algorithm to sort the array in ascending order. The function
+// should return the same, in-place sorted array.
+
+// Note: Bubble sort is one of the most inefficient ways to sort a large array of
+// integers. Nevertheless, it is an interview favorite. Bubble sort has a time
+// complexity of O(n2). However, if the sample size is small, bubble sort provides a
+// simple implementation of a classic sorting algorithm.
+
+// Examples:
+// bubble_sort_array({5,4,3},3) -> {3,4,5} bubble_sort_array({3},1) -> {3}
+// bubble_sort_array({},0) -> {}
 
 #include <iostream>
 
