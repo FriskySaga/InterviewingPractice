@@ -38,23 +38,23 @@
 
 #include <iostream>
 
-int* merge(int arr_left[], int sz_left,
-           int arr_right[], int sz_right)
+int* merge(int arrLeft[], int szLeft,
+           int arrRight[], int szRight)
 {
-  unsigned int sz = sz_left + sz_right;
+  unsigned int sz = szLeft + szRight;
   int* arr_merged = new int [sz];
 
   unsigned int i = 0, j = 0, k = 0;
 
   while (k < sz)
   {
-    if (i == sz_left) arr_merged[k++] = arr_right[j++];
+    if (i == szLeft) arr_merged[k++] = arrRight[j++];
 
-    else if (j == sz_right) arr_merged[k++] = arr_left[i++];
+    else if (j == szRight) arr_merged[k++] = arrLeft[i++];
 
-    else if (arr_left[i] <= arr_right[j]) arr_merged[k++] = arr_left[i++];
+    else if (arrLeft[i] <= arrRight[j]) arr_merged[k++] = arrLeft[i++];
 
-    else arr_merged[k++] = arr_right[j++];
+    else arr_merged[k++] = arrRight[j++];
   }
 
   return arr_merged;
