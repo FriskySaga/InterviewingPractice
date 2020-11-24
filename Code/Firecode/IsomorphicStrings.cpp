@@ -37,27 +37,30 @@
 
 bool isIsomorphic(std::string input1, std::string input2)
 {
-  if (input1.size() != input2.size())
-  {
-    return false;
-  }
-  std::unordered_map<char, unsigned int> hm1;
-  std::unordered_map<char, unsigned int> hm2;
+  if (input1.size() != input2.size()) return false;
+
+  std::unordered_map<char, char> m1;
+  std::unordered_map<char, char> m2;
   for (const auto& x : boost::combine(input1, input2))
   {
     char a, b;
     boost::tie(a, b) = x;
-    ++hm1[a];
-    ++hm2[b];
-  }
 
-  for (const auto& x: boost::combine(input1, input2))
-  {
-    char a, b;
-    boost::tie(a, b) = x;
-    if (hm1.at(a) != hm2.at(b))
+    if (m1.find(a) != m1.end())
     {
-      return false;
+      if (m1.at(a) != b) return false;
+    }
+    if (m2.find(b) != m2.end())
+    {
+      if (m2.at(b) != a) return false;
+    }
+    else
+    {
+      // No need to worry about duplicate insertion attempt for m1. Suppose:
+      // input1 = "aa", input2 = "ab"
+      // We would have returned False since m1['a'] != 'b'
+      m1.insert(std::make_pair(a,b));
+      m2.insert(std::make_pair(b,a));
     }
   }
   return true;
@@ -71,6 +74,8 @@ int main()
   assert(!isIsomorphic("abcabc", "xbexyz"));
   assert(!isIsomorphic("abcd", "aabb"));
   assert(!isIsomorphic("a", "ab"));
+  assert(!isIsomorphic("aba", "abb"));
+  assert(isIsomorphic("aba", "aba"));
 
   return 0;
 }
