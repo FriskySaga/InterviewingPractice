@@ -28,12 +28,49 @@
 // Input 2 : xbexyz
 // Output  : false
 
-bool isIsomorphic(string input1, string input2)
-{
+#include <boost/range/combine.hpp>
+#include <boost/tuple/tuple.hpp>
+#include <cassert>
+#include <iostream>
+#include <string>
+#include <unordered_map>
 
+bool isIsomorphic(std::string input1, std::string input2)
+{
+  if (input1.size() != input2.size())
+  {
+    return false;
+  }
+  std::unordered_map<char, unsigned int> hm1;
+  std::unordered_map<char, unsigned int> hm2;
+  for (const auto& x : boost::combine(input1, input2))
+  {
+    char a, b;
+    boost::tie(a, b) = x;
+    ++hm1[a];
+    ++hm2[b];
+  }
+
+  for (const auto& x: boost::combine(input1, input2))
+  {
+    char a, b;
+    boost::tie(a, b) = x;
+    if (hm1.at(a) != hm2.at(b))
+    {
+      return false;
+    }
+  }
+  return true;
 }
 
 int main()
 {
+  assert(isIsomorphic("css", "dll"));
+  assert(!isIsomorphic("css", "dle"));
+  assert(isIsomorphic("abcabc", "xyzxyz"));
+  assert(!isIsomorphic("abcabc", "xbexyz"));
+  assert(!isIsomorphic("abcd", "aabb"));
+  assert(!isIsomorphic("a", "ab"));
+
   return 0;
 }

@@ -10,7 +10,6 @@
  */
 
 #include <cassert>
-#include <iostream>
 #include <string>
 #include <unordered_map>
 
@@ -27,7 +26,7 @@ char firstNonRepeating(std::string str)
   // Find the first character with a single occurrence
   for (const auto c : str)
   {
-    if (hm[c] == 1)
+    if (hm.at(c) == 1)
     {
       return c;
     }
