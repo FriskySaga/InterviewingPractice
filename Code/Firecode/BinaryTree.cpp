@@ -1,6 +1,7 @@
 #include <cassert>
 #include <iostream>
 #include <string>
+#include <queue>
 #include <vector>
 
 struct TreeNode
@@ -71,23 +72,6 @@ void preorder(TreeNode* root)
   }
 }
 
-void traverseLevel(TreeNode* root, int level)
-{
-  if (root == NULL)
-  {
-    return;
-  }
-  if (level == 0)
-  {
-    std::cout << root->value << " ";
-  }
-  else if (level > 0)
-  {
-    traverseLevel(root->left, level-1);
-    traverseLevel(root->right, level-1);
-  }
-}
-
 // Level 3 - Salesforce
 // Example:
 //      1
@@ -95,13 +79,21 @@ void traverseLevel(TreeNode* root, int level)
 //    2   3     ==> 1234567
 //   / \ / \
 //  4  5 6  7 
-void levelOrder(TreeNode* root)
+std::vector<int> levelOrder(TreeNode* root)
 {
-  int height = getTreeHeight(root);
-  for (int level = 0; level < height; ++level)
+  std::vector<int> v;
+  if (root == NULL) return v;
+  std::queue<TreeNode*> q;
+  q.push(root);
+  while (!q.empty())
   {
-    traverseLevel(root, level);
+    TreeNode* node = q.front();
+    q.pop();
+    v.push_back(node->value);
+    if (node->left != NULL) q.push(node->left);
+    if (node->right != NULL) q.push(node->right);
   }
+  return v;
 }
 
 int main()
@@ -113,7 +105,9 @@ int main()
   TreeNode three = {3, &six, &seven};
   TreeNode two = {2, &four, &five};
   TreeNode one = {1, &two, &three};
-  levelOrder(&one); std::cout << std::endl;
+
+  std::vector<int> answer = {1,2,3,4,5,6,7};
+  assert(levelOrder(&one) == answer);
 
   return 0;
 }
