@@ -82,16 +82,16 @@ void preorder(TreeNode* root)
 std::vector<int> levelOrder(TreeNode* root)
 {
   std::vector<int> v;
-  if (root == NULL) return v;
   std::queue<TreeNode*> q;
-  q.push(root);
+  if (root) q.push(root);
   while (!q.empty())
   {
     TreeNode* node = q.front();
     q.pop();
+    if (node == nullptr) continue;
     v.push_back(node->value);
-    if (node->left != NULL) q.push(node->left);
-    if (node->right != NULL) q.push(node->right);
+    q.push(node->left);
+    q.push(node->right);
   }
   return v;
 }
