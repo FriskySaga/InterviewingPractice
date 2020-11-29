@@ -1,9 +1,3 @@
-/**
- * Firecode Level 2
- * 
- * A bunch of simple data structure operations with the Singly Linked List data structure.
- */
-
 #include <cassert>
 #include <iostream>
 
@@ -13,12 +7,9 @@ struct ListNode
   struct ListNode* next;
 };
 
-/**
- * My own function to delete the memory of the Linked List
- */
 void deleteLinkedList(ListNode* toDelete)
 {
-  while (toDelete != nullptr)
+  while (toDelete)
   {
     ListNode* temp = toDelete->next;
     delete toDelete;
@@ -26,14 +17,12 @@ void deleteLinkedList(ListNode* toDelete)
   }
 }
 
-/**
- * Determine if a given linked list has an even or odd number of nodes.
- */
+// Level 2
 bool isListEven(ListNode* head)
 {
   bool hasEvenNodes = true;
 
-  while (head != nullptr)
+  while (head)
   {
     head = head->next;
     hasEvenNodes = !hasEvenNodes;
@@ -42,12 +31,7 @@ bool isListEven(ListNode* head)
   return hasEvenNodes;
 }
 
-/**
- * Insert a node at the end of a singly-linked list.
- * Return the head of the modified list. 
- * 
- * Developer's Note: This is absolutely horrible design, but this is what Firecode gave me to work with.
- */
+// Level 2
 ListNode* insertAtTail(ListNode* head, int data)
 {
   if (head == nullptr)
@@ -56,13 +40,38 @@ ListNode* insertAtTail(ListNode* head, int data)
   }
 
   ListNode* temp = head;
-  while (temp->next != nullptr)
+  while (temp->next)
   {
     temp = temp->next;
   }
 
   temp->next = new ListNode{data, nullptr};
 
+  return head;
+}
+
+// Level 3 - Oracle
+ListNode* deleteAtPos(ListNode* head, int n)
+{
+  int pos = 1;
+  ListNode* prev = nullptr;
+  ListNode* iter = head;
+  while (iter)
+  {
+    if (pos != n)
+    {
+      prev = iter;
+      iter = iter->next;
+    }
+    else
+    {
+      if (prev) prev->next = iter->next;
+      else head = iter->next;
+      delete iter;
+      break;
+    }
+    ++pos;
+  }
   return head;
 }
 
