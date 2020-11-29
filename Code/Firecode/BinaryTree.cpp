@@ -1,9 +1,3 @@
-/**
- * Firecode Level 2 / Leetcode Medium
- * 
- * Given the root node of a Binary Tree, determine if it is a Binary Search Tree.
- */
-
 #include <cassert>
 #include <iostream>
 #include <string>
@@ -54,11 +48,13 @@ bool isValidBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
   return isValidBST(root->left, minNode, root) && isValidBST(root->right, root, maxNode);
 }
 
+// Level 2
 bool validateBST(TreeNode* root)
 {
   return isValidBST(root, nullptr, nullptr);
 }
 
+// Level 2
 // Example:  
 //      1
 //     / \
@@ -75,7 +71,49 @@ void preorder(TreeNode* root)
   }
 }
 
+void traverseLevel(TreeNode* root, int level)
+{
+  if (root == NULL)
+  {
+    return;
+  }
+  if (level == 0)
+  {
+    std::cout << root->value << " ";
+  }
+  else if (level > 0)
+  {
+    traverseLevel(root->left, level-1);
+    traverseLevel(root->right, level-1);
+  }
+}
+
+// Level 3 - Salesforce
+// Example:
+//      1
+//     / \
+//    2   3     ==> 1234567
+//   / \ / \
+//  4  5 6  7 
+void levelOrder(TreeNode* root)
+{
+  int height = getTreeHeight(root);
+  for (int level = 0; level < height; ++level)
+  {
+    traverseLevel(root, level);
+  }
+}
+
 int main()
 {
+  TreeNode seven = {7, nullptr, nullptr};
+  TreeNode six = {6, nullptr, nullptr};
+  TreeNode five = {5, nullptr, nullptr};
+  TreeNode four = {4, nullptr, nullptr};
+  TreeNode three = {3, &six, &seven};
+  TreeNode two = {2, &four, &five};
+  TreeNode one = {1, &two, &three};
+  levelOrder(&one); std::cout << std::endl;
+
   return 0;
 }
