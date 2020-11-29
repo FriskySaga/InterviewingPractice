@@ -10,7 +10,7 @@
 #include <cassert>
 #include <iostream>
 
-// Computes the maximum gain for adjacent numbers
+// WARN: Computes the maximum gain for adjacent numbers
 int maxGainAdjacent(int arr[], int sz)
 {
   int maxGain = 0;
@@ -47,27 +47,24 @@ int maxGainN2(int arr[], int sz)
   return maxGain;
 }
 
+// O(n) solution
 int maxGain(int arr[], int sz)
 {
-  if (sz <= 1)
-  {
-    return 0;
-  }
+  if (sz <= 1) return 0;
 
-  int maxGain = 0, min = arr[0];
+  int minVal = arr[0];
+  int maxGain = 0;
 
   for (int i = 1; i < sz; ++i)
   {
-    if (arr[i] < min)
+    if (arr[i] < minVal) minVal = arr[i];
+    else
     {
-      min = arr[i];
-    }
-    else if (arr[i] - min > maxGain)
-    {
-      maxGain = arr[i] - min;
+      int diff = arr[i] - minVal;
+      if (diff > maxGain) maxGain = diff;
     }
   }
-  
+
   return maxGain;
 }
 
@@ -93,6 +90,15 @@ int main()
 
   int g[5] = {50, 0, 10, 100, 30};
   assert(maxGain(g, 5) == 100);
+
+  // Max gain is 99 even though 0 is the new minimum
+  // because the only available max gain after is 10.
+  int h[4] = {1, 100, 0, 10};
+  assert(maxGain(h, 4) == 99);
+
+  // Max gain is 110
+  int i[4] = {1, 100, 0, 110};
+  assert(maxGain(i, 4) == 110);
 
   return 0;
 }
