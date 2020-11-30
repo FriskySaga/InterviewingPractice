@@ -1,5 +1,6 @@
 /**
  * Firecode - Level 3
+ * MachineZone
  */
 
 // A Range Module is a module that tracks ranges of numbers. Range modules are used
