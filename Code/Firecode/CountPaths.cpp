@@ -27,11 +27,18 @@
 #include <cassert>
 #include <iostream>
 
-// Exponential time complexity
 int countPaths(int rows, int cols)
 {
-  if (rows == 1 || cols == 1) return 1;
-  else return countPaths(rows-1, cols) + countPaths(rows, cols-1);
+  int memo[rows][cols];
+  // Only one path from the first row/column to the starting cell
+  for (int c = 0; c < cols; ++c) memo[0][c] = 1;
+  for (int r = 0; r < rows; ++r) memo[r][0] = 1;
+
+  for (int r = 1; r < rows; ++r)
+    for (int c = 1; c < cols; ++c)
+      memo[r][c] = memo[r-1][c] + memo[r][c-1];
+
+  return memo[rows-1][cols-1];
 }
 
 int main()
