@@ -4,8 +4,8 @@
  * Firecode - Level 3
  */
 
-// You're given a game board that has m x n squares on it, represented by an m x n
-// array.
+// You're given a game board that has m x n squares on it,
+// represented by an m x n array.
 // Write a method - count_paths that takes in m and n and returns the number
 // of possible paths from the top left corner to the bottom right corner.
 // Only down and right directions of movement are permitted.
@@ -27,8 +27,11 @@
 #include <cassert>
 #include <iostream>
 
+// Exponential time complexity
 int countPaths(int rows, int cols)
 {
+  if (rows == 1 || cols == 1) return 1;
+  else return countPaths(rows-1, cols) + countPaths(rows, cols-1);
 }
 
 int main()
