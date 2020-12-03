@@ -27,6 +27,7 @@
 #include <cassert>
 #include <iostream>
 
+// NOTE: This problem is solvable in O(1) by calculating the binomial coefficent
 int countPaths(int rows, int cols)
 {
   int memo[rows][cols];
