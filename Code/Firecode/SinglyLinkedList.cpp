@@ -17,7 +17,7 @@ void deleteLinkedList(ListNode* toDelete)
   }
 }
 
-// Level 2
+// Level 2 (Oracle)
 bool isListEven(ListNode* head)
 {
   bool hasEvenNodes = true;
