@@ -30,13 +30,26 @@
 int countPaths(int rows, int cols)
 {
   int memo[rows][cols];
-  // Only one path from the first row/column to the starting cell
+
+  // Only one path from the starting cell to any cell in the first row or column
   for (int c = 0; c < cols; ++c) memo[0][c] = 1;
   for (int r = 0; r < rows; ++r) memo[r][0] = 1;
 
+  // Notate number of paths from starting cell to the current cell
   for (int r = 1; r < rows; ++r)
     for (int c = 1; c < cols; ++c)
       memo[r][c] = memo[r-1][c] + memo[r][c-1];
+
+  // Print to see memoization table
+  for (int r = 0; r < rows; ++r)
+  {
+    for (int c = 0; c < cols; ++c)
+    {
+      std::cout << memo[r][c] << " ";
+    }
+    std::cout << std::endl;
+  }
+  std::cout << std::endl;
 
   return memo[rows-1][cols-1];
 }
@@ -44,5 +57,6 @@ int countPaths(int rows, int cols)
 int main()
 {
   assert(countPaths(2,2) == 2);
+  assert(countPaths(3,3) == 6);
   return 0;
 }
