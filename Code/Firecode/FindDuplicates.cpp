@@ -2,6 +2,7 @@
  * Find duplicates in array
  * Amazon
  * Firecode Level 3
+ * Leetcode Medium Equivalent
  */
 
 // Write a function to find the redundant or repeated elements in an array.
