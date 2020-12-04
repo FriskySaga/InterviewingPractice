@@ -1,4 +1,6 @@
 /**
+ * Anagrams
+ * Visa
  * Firecode Level 2
  * 
  * Determine if two lowercase strings are anagrams.
@@ -13,10 +15,9 @@
 bool isAnagram(std::string input1, std::string input2)
 {
   std::unordered_map<char, unsigned int> hm;
-  for (auto const& c : input1) ++hm[c];
-  for (auto const& c : input2) --hm[c];
-  for (auto const& x : hm)
-    if (x.second) return false;
+  for (const auto& x : input1) ++hm[x];
+  for (const auto& x : input2) --hm[x];
+  for (const auto& x : hm) if (x.second > 0) return false;
   return true;
 }
 
