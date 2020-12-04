@@ -50,7 +50,30 @@ ListNode* insertAtTail(ListNode* head, int data)
   return head;
 }
 
+// Level 3
+// pos is 1-indexed
+ListNode* insertAtPosition(ListNode* head, int data, int pos)
+{
+  int cur = 1;
+  ListNode* prev = NULL;
+  ListNode* iter = head;
+  while (cur <= pos)
+  {
+    if (cur == pos)
+    {
+      if (prev != NULL) prev->next = new ListNode{data, iter};
+      else head = new ListNode{data, iter};
+      break;
+    }
+    prev = iter;
+    iter = iter->next;
+    ++cur;
+  }
+  return head;
+}
+
 // Level 3 - Oracle
+// n is 1-indexed
 ListNode* deleteAtPos(ListNode* head, int n)
 {
   int pos = 1;
@@ -82,22 +105,14 @@ int main()
 
   // 1 -> nullptr
   ListNode* first = insertAtTail(nullptr, 1);
-  assert(first->value == 1);
-  assert(first->next == nullptr);
   assert(!isListEven(first));
 
-  // 1 -> 2 -> nullptr
-  first = insertAtTail(first, 2);
-  ListNode* second = first->next;
-  assert(second->value == 2);
-  assert(second->next == nullptr);
+  // 1 -> 3 -> nullptr
+  first = insertAtTail(first, 3);
   assert(isListEven(first));
 
   // 1 -> 2 -> 3 -> nullptr
-  first = insertAtTail(first, 3);
-  ListNode* third = second->next;
-  assert(third->value == 3);
-  assert(third->next == nullptr);
+  first = insertAtPosition(first, 2, 2);
   assert(!isListEven(first));
 
   deleteLinkedList(first);
