@@ -98,6 +98,25 @@ ListNode* deleteAtPos(ListNode* head, int n)
   return head;
 }
 
+// Level 3 - Oracle
+ListNode* reverseList(ListNode* head)
+{
+  ListNode* prev = nullptr;
+  while (head != nullptr)
+  {
+    // Save off the current's next pointer
+    ListNode* nextPtr = head->next;
+
+    // Reverse current's next pointer
+    head->next = prev;
+
+    // Advance each pointer
+    prev = head;
+    head = nextPtr;
+  }
+  return prev;
+}
+
 int main()
 {
   // nullptr
