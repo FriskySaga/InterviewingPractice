@@ -117,6 +117,46 @@ ListNode* reverseList(ListNode* head)
   return prev;
 }
 
+// Level 3 - Amazon
+// Example:
+// 1->2->3->4->5->6, head = 1
+// findNthNodeFromEnd(head, 2) ==> 5
+ListNode* findNthNodeFromEnd(ListNode* head, int n)
+{
+  if (n <= 0)
+  {
+    return nullptr;
+  }
+
+  int numNodes = 0;
+  ListNode* temp = head;
+
+  // Count number of nodes in linked list
+  // Aside:
+  // Why would I ever have a linked list
+  // that doesn't compute the length automatically?
+  while (temp != nullptr)
+  {
+    temp = temp->next;
+    ++numNodes;
+  }
+
+  if (numNodes < n)
+  {
+    return nullptr;
+  }
+
+  temp = head;
+
+  // Get the node to return by counting from the beginning rather than the end
+  for (int i = 1; i < numNodes - n + 1; ++i)
+  {
+    temp = temp->next;
+  }
+
+  return temp;
+}
+
 int main()
 {
   // nullptr
