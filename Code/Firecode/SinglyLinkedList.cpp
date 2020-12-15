@@ -123,38 +123,24 @@ ListNode* reverseList(ListNode* head)
 // findNthNodeFromEnd(head, 2) ==> 5
 ListNode* findNthNodeFromEnd(ListNode* head, int n)
 {
-  if (n <= 0)
+  ListNode* p = head, *q = head;
+
+  // Move p to (n+1)th node from the beginning
+  for (int i = 1; i <= n; ++i)
   {
-    return nullptr;
+    if (p == nullptr) return nullptr;
+    p = p->next;
   }
 
-  int numNodes = 0;
-  ListNode* temp = head;
-
-  // Count number of nodes in linked list
-  // Aside:
-  // Why would I ever have a linked list
-  // that doesn't compute the length automatically?
-  while (temp != nullptr)
+  // Then move p and q until p reaches the end
+  while (p != nullptr)
   {
-    temp = temp->next;
-    ++numNodes;
+    p = p->next;
+    q = q->next;
   }
 
-  if (numNodes < n)
-  {
-    return nullptr;
-  }
-
-  temp = head;
-
-  // Get the node to return by counting from the beginning rather than the end
-  for (int i = 1; i < numNodes - n + 1; ++i)
-  {
-    temp = temp->next;
-  }
-
-  return temp;
+  // Therefore, q should be nth node from the end
+  return q;
 }
 
 int main()
