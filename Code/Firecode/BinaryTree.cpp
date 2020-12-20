@@ -20,19 +20,6 @@ void traceBSTValidation(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
   std::cout << "Root: " << rootStr << ", Min: " << minNodeStr << ", Max: " << maxNodeStr << std::endl;
 }
 
-int getTreeHeight(TreeNode* root)
-{
-  if (root == nullptr)
-  {
-    return 0;
-  }
-
-  int lHeight = getTreeHeight(root->left);
-  int rHeight = getTreeHeight(root->right);
-
-  return lHeight > rHeight ? lHeight + 1 : rHeight + 1;
-}
-
 bool isValidBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode)
 {
   if (root == nullptr)
@@ -95,6 +82,49 @@ std::vector<int> levelOrder(TreeNode* root)
     q.push(node->right);
   }
   return v;
+}
+
+int getTreeHeight(TreeNode* root)
+{
+  if (root == nullptr)
+  {
+    return 0;
+  }
+
+  int lHeight = getTreeHeight(root->left);
+  int rHeight = getTreeHeight(root->right);
+
+  return lHeight > rHeight ? lHeight + 1 : rHeight + 1;
+}
+
+// Level 3 - Google (Leetcode Easy)
+// The diameter of a Binary Tree is defined as the
+// "Number of nodes on the longest path between two leaf nodes".
+// Example:
+//            20                                  
+//         /     \                              
+//        15     30 
+//       /  \      \                     
+//      14  18     35
+//         /  \    /
+//        17  19  32
+//     diameter ==> 7 
+// Note we can traverse from 32 to 19
+int diameter(TreeNode* root)
+{
+  if (root == nullptr) return 0;
+
+  int leftHeight = getTreeHeight(root->left);
+  int rightHeight = getTreeHeight(root->right);
+
+  int leftDiameter = diameter(root->left);
+  int rightDiameter = diameter(root->right);
+
+  // Return max of either:
+  // 1) Height of left subtree + height of right subtree + 1
+  // 2) Diameter of left subtree
+  // 3) Diameter of right subtree
+  return std::max(leftHeight + rightHeight + 1, std::max(leftDiameter, rightDiameter));
 }
 
 int main()
