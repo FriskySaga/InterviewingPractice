@@ -143,6 +143,25 @@ ListNode* findNthNodeFromEnd(ListNode* head, int n)
   return q;
 }
 
+// Level 3 - Find middle node of linked list.
+// If there is a tie, use the left node
+ListNode* findMiddleNode(ListNode* head)
+{
+  ListNode* fast = head;
+  ListNode* slow = head;
+
+  // Traverse the list by moving one pointer with double the speed
+  // as the slow pointer. Stop when the faster pointer reaches
+  // the end of the linked list.
+  while (fast && fast->next && fast->next->next)
+  {
+    slow = slow->next;
+    fast = fast->next->next;
+  }
+
+  return slow;
+}
+
 int main()
 {
   // nullptr
