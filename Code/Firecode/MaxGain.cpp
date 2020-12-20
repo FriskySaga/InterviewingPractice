@@ -1,5 +1,6 @@
 /**
  * Firecode Level 2
+ * Bloomberg
  * 
  * Given an array of integers, write a method that returns the maximum gain.
  * Maximum Gain is defined as the maximum difference between 2 elements in a list
