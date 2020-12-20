@@ -49,6 +49,8 @@ int maxGainN2(int arr[], int sz)
 }
 
 // O(n) solution
+// Maximum Gain is defined as the maximum difference between 2 elements in a list
+// such that the larger element appears after the smaller element.
 int maxGain(int arr[], int sz)
 {
   if (sz <= 1) return 0;
@@ -58,11 +60,23 @@ int maxGain(int arr[], int sz)
 
   for (int i = 1; i < sz; ++i)
   {
-    if (arr[i] < minVal) minVal = arr[i];
+    // Set the new minimum if found
+    if (arr[i] < minVal)
+      minVal = arr[i];
+
+    // No need to compute maxGain if we had just found a new minimum
     else
     {
       int diff = arr[i] - minVal;
-      if (diff > maxGain) maxGain = diff;
+
+      // Set the new max gain if found.
+      // From the definition of max gain, we are guaranteed that
+      // the larger element appears after the smaller element.
+      // Therefore, if we had a new minimum, we could only pair it
+      // with the elements after that new minimum.
+      // Performing this if-check guarantees no fallacies in our logic
+      if (diff > maxGain)
+        maxGain = diff;
     }
   }
 
