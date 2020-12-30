@@ -1,5 +1,7 @@
 // To compile on my WSL:
-// g++ Multithreading.cpp -lpthread && ./a.out
+//   g++ Multithreading.cpp -std=c++11 -lpthread
+// To run ThreadSantizer (TSan):
+//   g++ Multithreading.cpp -std=c++11 -lpthread -fsanitize=thread -O2 -g
 
 #include <iostream>
 #include <thread>
