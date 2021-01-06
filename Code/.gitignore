@@ -3,4 +3,4 @@
 *.out
 
 # VS Code Settings
-Workspace.code-workspace
+*.code-workspace
