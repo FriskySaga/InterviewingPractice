@@ -29,29 +29,22 @@ using namespace std;
 // 8 -> "tuv"
 // 9 -> "wxyz"
 
-unordered_map<char, string> digitsToLetters
-({
-  {'2', "abc"},
-  {'3', "def"},
-  {'4', "ghi"},
-  {'5', "jkl"},
-  {'6', "mno"},
-  {'7', "pqrs"},
-  {'8', "tuv"},
-  {'9', "wxyz"}
-});
-vector<string> stringsFromNums;
-
-void backtrack(string combination, string nextDigits)
+void backtrack(const string& letterCombination,
+               const string& nextDigits,
+               const unordered_map<char, string>& digitsToLetters,
+               vector<string>& stringsFromNums)
 {
   if (nextDigits.empty())
-    stringsFromNums.push_back(combination);
+    stringsFromNums.push_back(letterCombination);
 
   else
   {
     string letters = digitsToLetters.at(nextDigits.front());
     for (const auto& letter : letters)
-      backtrack(combination + letter, nextDigits.substr(1U));
+      backtrack(letterCombination + letter,
+                nextDigits.substr(1U),
+                digitsToLetters,
+                stringsFromNums);
   }
 }
 
@@ -60,8 +53,21 @@ void backtrack(string combination, string nextDigits)
 // Output : [dg, dh, di, eg, eh, ei, fg, fh, fi]
 vector<string> getStringsFromNums(string digits) 
 {
+  unordered_map<char, string> digitsToLetters
+  ({
+    {'2', "abc"},
+    {'3', "def"},
+    {'4', "ghi"},
+    {'5', "jkl"},
+    {'6', "mno"},
+    {'7', "pqrs"},
+    {'8', "tuv"},
+    {'9', "wxyz"}
+  });
+  vector<string> stringsFromNums;
+
   if (!digits.empty())
-    backtrack("", digits);
+    backtrack("", digits, digitsToLetters, stringsFromNums);
   return stringsFromNums;
 }
 
