@@ -34,19 +34,19 @@ vector<string> getPermutations(string s)
     return permutations;
   }
 
-  vector<string> result_set;
+  vector<string> resultSet;
   permutations = getPermutations(s.substr(1U));
   for (const auto& str : permutations)
   {
     int len = str.size();
     for (int j = -1; j < len; ++j)
     {
-      string new_str = str.substr(0U, j + 1)+  s.at(0U) + str.substr(j + 1);
-      result_set.push_back(new_str);
+      string newStr = str.substr(0U, j + 1) +  s.at(0U) + str.substr(j + 1);
+      resultSet.push_back(newStr);
     }
   }
 
-  return result_set;
+  return resultSet;
 }
 
 int main()
