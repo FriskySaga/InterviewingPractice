@@ -127,6 +127,36 @@ int diameter(TreeNode* root)
   return std::max(leftHeight + rightHeight + 1, std::max(leftDiameter, rightDiameter));
 }
 
+// Count number of elements starting from the root
+int getTreeSize(TreeNode* root)
+{
+  if (root == nullptr) return 0;
+  return getTreeSize(root->left) + 1 + getTreeSize(root->right);
+}
+
+// Firecode Level 4 - Twitter - Leetcode Medium
+// Write a function to find and return the kth smallest node in a
+// binary search tree.
+// If the node is not found, return NULL.
+// Examples:
+//        4
+//       / \
+//      2   8
+//         / \
+//        5  10
+// find 2nd smallest node ==> 4
+TreeNode* findKthSmallest(TreeNode* root, int k) 
+{
+  if (root == nullptr) return nullptr;
+
+  int leftSubtreeSize = 0;
+  if (root->left != nullptr) leftSubtreeSize = getTreeSize(root->left);
+
+  if (leftSubtreeSize + 1 == k) return root;
+  else if (k <= leftSubtreeSize) return findKthSmallest(root->left, k);
+  else return findKthSmallest(root->right, k - leftSubtreeSize - 1);
+}
+
 // Apple Level 4
 // Write a function to find the kth largest node in a
 // binary search tree
@@ -138,11 +168,6 @@ int diameter(TreeNode* root)
 //         / \                     
 //        5  10 
 // find 2nd largest node ==> 8                 
-int tree_size(treeNode* root)
-{
-    if(root == NULL) return 0;
-    return tree_size(root->left)+1+tree_size(root->right);
-}
 treeNode* find_kth_largest(treeNode* root, int k) 
 {
     if (root == NULL) return NULL;
@@ -158,34 +183,6 @@ treeNode* find_kth_largest(treeNode* root, int k)
         return find_kth_largest(root->left, k-rightSize-1);
 }
 
-// Twitter
-// Firecode Level 4
-// Write a function to find and return the kth smallest node in a
-// binary search tree
-// If the node is not found, return NULL.
-// Examples:
-//        4                                  
-//       / \                              
-//      2   8     
-//         / \                     
-//        5  10     
-// find 2nd smallest node ==> 4         
-int tree_size(treeNode* root)
-{
-    if(root == NULL) return 0;
-    return tree_size(root->left)+1+tree_size(root->right);
-}treeNode* find_kth_smallest(treeNode* root, int k) 
-{
-    if (root == NULL) return NULL;
-    int left_size=0;          /* Track the size of the left subtree */
-    if (root->left != NULL)  /* Get the size of the left subtree */
-        left_size = tree_size(root->left);
-    if (left_size+1 == k)  return root;
-    else if (k <= left_size) 
-        return find_kth_smallest(root->left, k);
-    else
-        return find_kth_smallest(root->right, k-left_size-1);
-}
 
 int main()
 {
