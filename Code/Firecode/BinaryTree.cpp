@@ -157,7 +157,7 @@ TreeNode* findKthSmallest(TreeNode* root, int k)
   else return findKthSmallest(root->right, k - leftSubtreeSize - 1);
 }
 
-// Apple Level 4
+// Firecode Level 4 - Apple
 // Write a function to find the kth largest node in a
 // binary search tree
 // If the node is not found, return NULL .
@@ -168,19 +168,16 @@ TreeNode* findKthSmallest(TreeNode* root, int k)
 //         / \                     
 //        5  10 
 // find 2nd largest node ==> 8                 
-treeNode* find_kth_largest(treeNode* root, int k) 
+TreeNode* findKthLargest(TreeNode* root, int k)
 {
-    if (root == NULL) return NULL;
-    /* Track size of the right subtree */
-    int rightSize=0;
-    if (root->right != NULL)  /* Get the size of the right subtree */
-        rightSize = tree_size(root->right);
-    if (rightSize+1 == k)
-        return root;
-    else if (k <= rightSize) 
-        return find_kth_largest(root->right, k);
-    else
-        return find_kth_largest(root->left, k-rightSize-1);
+  if (root == nullptr) return nullptr;
+
+  int rightSubtreeSize = 0;
+  if (root->right != nullptr) rightSubtreeSize = getTreeSize(root->right);
+
+  if (rightSubtreeSize + 1 == k) return root;
+  else if (k <= rightSubtreeSize) return findKthLargest(root->right, k);
+  else return findKthLargest(root->left, k - rightSubtreeSize - 1);
 }
 
 
