@@ -180,7 +180,6 @@ TreeNode* findKthLargest(TreeNode* root, int k)
   else return findKthLargest(root->left, k - rightSubtreeSize - 1);
 }
 
-
 int main()
 {
   TreeNode seven = {7, nullptr, nullptr};
