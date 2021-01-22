@@ -30,20 +30,25 @@ bool group_sum(int arr[], int size, int target)
     return find_sum(0, arr, size, target);
 }
 
-// Alternate solution
-bool group_sum_with_num(int arr[], int sz, int must_have, int target_sum) {
-    if (target_sum == 0)
+// Same problem as above, but with one extra criteria:
+// The subset to sum must contain the value stored by `must_have`
+bool group_sum_with_num(int arr[], int sz, int must_have, int target_sum)
+{
+  if (target_sum == 0) return true;
+  else if (sz == 0) return false;
+  else
+  {
+    if (arr[sz-1] == must_have)
+      return group_sum_with_num(arr, sz-1, must_have, target_sum-must_have);
+    else
+    {
+      // Calculate sum with element at last index
+      if (group_sum_with_num(arr, sz-1, must_have, target_sum-arr[sz-1]))
         return true;
-    else if (sz==0)
-        return false;
-    else{
-      if (arr[sz-1] == must_have)  /* Calculating the sum by Including must have element */
-        return group_sum_with_num(arr, sz-1, must_have, target_sum-must_have);
-       else{                       /* Calculating the sum by Including element at last indx */
-         if (group_sum_with_num(arr, sz-1, must_have, target_sum-arr[sz-1]))
-           return true;
-         else                     /* Calculate the sum without the element at last indx */
-           return group_sum_with_num(arr, sz-1, must_have, target_sum);
-       }
+
+      // Calculate sum without element at last index
+      else
+        return group_sum_with_num(arr, sz-1, must_have, target_sum);
     }
+  }
 }
