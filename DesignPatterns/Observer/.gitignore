@@ -1,0 +1,6 @@
+# Ignore executables
+*.out
+
+# Ignore VS Code files
+*.code-workspace
+
