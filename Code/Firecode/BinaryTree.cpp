@@ -180,6 +180,33 @@ TreeNode* findKthLargest(TreeNode* root, int k)
   else return findKthLargest(root->left, k - rightSubtreeSize - 1);
 }
 
+// Level 4 - Google
+// Given a binary tree and the data values of two tree nodes, implement a function
+// to find and return the LCA (Lowest Common Ancestor) node of the two nodes. a and
+// b are the data values of the two input nodes. Assume that nodes with the values a
+// and b will surely exist in the tree.
+// Examples:
+//        1
+//       / \
+//      2   3
+//     / \ / \
+//    4  5 6  7
+// LCA of 6 and 4 is 1,
+// LCA of 4 and 5 is 2.
+TreeNode* find_lca(TreeNode* root, int a, int b)
+{
+  // This basically uses the fact that if a and b are in the same subtree of root
+  // (i.e., both in left subtree or both in right), then find_lca(root,a,b) equals
+  // find_lca(root->left,a,b) (or ->right, respectively). If a and b are split
+  // across different subtrees, then root itself is the LCA. 
+  if (root == nullptr) return nullptr;
+  if (root->value == a || root->value == b) return root;
+  TreeNode* left = find_lca(root->left, a, b);
+  TreeNode* right = find_lca(root->right, a, b);
+  if (left != nullptr && right != nullptr) return root;
+  return left == nullptr ? right : left;
+}
+
 int main()
 {
   TreeNode seven = {7, nullptr, nullptr};
