@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <queue>
+#include <stack>
 #include <vector>
 
 struct TreeNode
@@ -205,6 +206,56 @@ TreeNode* find_lca(TreeNode* root, int a, int b)
   TreeNode* right = find_lca(root->right, a, b);
   if (left != nullptr && right != nullptr) return root;
   return left == nullptr ? right : left;
+}
+
+// Level 4 - Asana
+// Given the root node of a Binary Tree, write a method to iteratively determine if
+// it is a Binary Search Tree. Examples:
+//           20
+//          /   \
+//        15    30
+//       /  \
+//      14  18
+//     output ==> true
+//           20
+//          /   \
+//        30    15
+//       /  \
+//      14  18
+//    output ==> false
+bool validate_bst_itr(TreeNode* root)
+{
+  // Stores root node and left subtree of each node
+  std::stack<TreeNode*> stack;
+    
+  // Stores previous visited node
+  TreeNode* prev = nullptr;
+
+  // Traverse the binary tree
+  while (!stack.empty() || root != nullptr)
+  {
+    // Traverse left subtree
+    while (root != nullptr)
+    {
+      stack.push(root);
+      root = root->left;
+    }
+
+    root = stack.top();
+    stack.pop();
+
+    // Not a BST if the value of root node is less than or equal to the value of left subtree
+    if (prev != nullptr && root->value <= prev->value)
+    {
+      return false;
+    }
+
+    // Update prev and traverse right subtree of the tree
+    prev = root;
+    root = root->right;
+  }
+
+  return true;
 }
 
 int main()
