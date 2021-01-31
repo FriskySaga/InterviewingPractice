@@ -258,6 +258,58 @@ bool validate_bst_itr(TreeNode* root)
   return true;
 }
 
+// Firecode - Level 4 (LinkedIn)
+// Given a binary tree, write a method to return the level that has the maximum sum.
+// In case the tree is empty, return -1
+
+// Example:
+//        1
+//       / \
+//      2   3
+//     / \ / \
+//    4  5 6  7
+//   /
+//  8
+// Output ==> 2
+
+// Note: Assume that root is at level 0.
+int find_max_sum_level(TreeNode* root)
+{
+  if (root == nullptr) return -1;
+  int curr_sum = 0, max_sum = 0;
+  int curr_lvl = 0, max_lvl = 0;
+  std::queue<TreeNode*> q;
+  TreeNode* ptr;
+  q.push(root);          /* Insert the root node in the queue */
+  q.push(nullptr);
+  while (!q.empty())
+  {
+    ptr = q.front();      /* get a Tree node from head of the queue */
+    q.pop();
+    if (ptr == nullptr)
+    {
+      if (curr_sum > max_sum)
+      {
+          max_sum = curr_sum;
+          max_lvl = curr_lvl;
+      }
+      curr_sum = 0; //reset
+      if (!q.empty())
+          q.push(nullptr);; //end of level indicator
+      ++curr_lvl; //begin next level
+    }
+    else
+    {
+      curr_sum += ptr->value;
+      if (ptr->left != nullptr) /* move the left child node of the tree node in the queue */
+        q.push(ptr->left);
+      if (ptr->right != nullptr) /* move the right child node of the tree node in the queue */
+        q.push(ptr->right);
+    }
+  }
+  return max_lvl;
+}
+
 int main()
 {
   TreeNode seven = {7, nullptr, nullptr};
