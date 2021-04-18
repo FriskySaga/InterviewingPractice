@@ -16,3 +16,8 @@ bool isPrime(int num) {
   // The number is prime if an integer quotient could not be attained above
   return true;
 }
+
+int main()
+{
+  isPrime(113);
+}
