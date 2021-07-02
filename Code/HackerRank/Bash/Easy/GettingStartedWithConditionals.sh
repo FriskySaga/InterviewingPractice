@@ -7,4 +7,5 @@ read char
 
 # echo -e to enable interpretation of backslash escapes
 # grep -i to ignore case when parsing $char
+# https://unix.stackexchange.com/questions/572339/understanding-read-echo-and-grep-commands-in-a-bash-command-line
 echo -e "YES\nNO\n" | grep -i $char
