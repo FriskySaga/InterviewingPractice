@@ -15,3 +15,6 @@ cut -c-4 $1
 # Given a tab delimited file with several columns (tsv format), print the first
 # three fields
 cut -f1-3 $1
+
+# Print the characters from the 13th position to the end
+cut -c13- $1
