@@ -24,3 +24,10 @@ cut -c13- $1
 # space character is the only delimiter between words
 cut -d ' ' -f4 $1
 
+# Given a sentence, identify and display its first three words. Assume that
+# the space character is the only delimiter beteen words
+cut -d ' ' -f1-3 $1
+
+# Given a tab delimited file with several columns (tsv format), print the
+# fields from the second field to the last field
+cut -f2- $1
