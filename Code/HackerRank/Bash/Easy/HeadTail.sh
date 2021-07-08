@@ -9,3 +9,6 @@ head -n 22 | tail -n +12
 
 # Display the last 20 lines of an input file
 tail -n20
+
+# Display the last 20 characters of an input file
+tail -c20
