@@ -48,13 +48,13 @@ class ProjectEuler
     }
     try
     {
-      for (String problemNumber : args) 
-      {
+      for (String problemNumber : args) {
         Method solveProblemMethod = ProjectEuler.class.getMethod("solveProblem" + problemNumber);
         int answer = (int) solveProblemMethod.invoke(null);
         System.out.println(String.format("Answer to problem #%s: %d", problemNumber, answer));
       }
     }
+    // Exceptions are listed here to appease VS Code's squiggly red lines
     catch (IllegalAccessException e)
     {
       System.out.println("Exception thrown: " + e);
