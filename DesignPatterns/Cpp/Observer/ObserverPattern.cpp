@@ -4,6 +4,12 @@
 #include <vector>
 
 class NumberSubject;
+
+/**
+ * Constructor is defined in the derived class
+ * because otherwise will be an unresolved
+ * cyclic dependency with Observer and NumberSubject.
+ */
 class Observer
 {
 public:
@@ -125,7 +131,25 @@ int main()
   DecimalObserver decimalObserver(numberSubject);
   HexObserver hexObserver(numberSubject);
 
+  /**
+   * Output:
+   * 
+   * Binary: 00001111
+   * Octal: 17
+   * Decimal: 15
+   * Hexadecimal: f
+   */
   numberSubject->setNumber(15);
+
+  /**
+   * Output
+   * 
+   * Binary: 00001010
+   * Octal: 12
+   * Decimal: 10
+   * Hexadecimal: a
+   *
+   */
   numberSubject->setNumber(10);
 
   delete numberSubject;
