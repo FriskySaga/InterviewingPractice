@@ -1,6 +1,7 @@
 @startuml ObserverPattern
 
 skinparam Monochrome reverse
+skinparam defaultFontName Aapex
 skinparam defaultFontSize 16
 
 title Observer pattern for representing different forms of numbers
