@@ -1,8 +1,15 @@
 # Observer Pattern
 This project showcases the C++ implementation of the Observer pattern, which falls under the Behavorial category of design patterns from the Gang of Four.
 
-Each Observer updates the Subject.
+Each Observer is updated when the Subject is updated.
 
+This pattern represents a technique to handle coupling of different classes.
+
+## Explanation
+The client attaches the Subject to every Observer.
+
+The client invokes `getNumber()` and `setNumber()`
+to update the subject, which then notifies the Observer classes to invoke the `update()` function.
 
 ![Observer Pattern Diagram](ObserverPattern.png)
 

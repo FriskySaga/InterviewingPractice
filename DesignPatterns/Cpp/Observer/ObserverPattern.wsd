@@ -47,10 +47,6 @@ class HexObserver
   + void update()
 }
 
-note top of NumberSubject : The client attaches the Subject to every Observer.
-note top of NumberSubject : The client invokes getNumber() and setNumber() \
-to update the subject, which then causes the Observers to update.
-
 Observer <|-- BinaryObserver
 Observer <|-- OctalObserver
 Observer <|-- DecimalObserver
