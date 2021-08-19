@@ -5,7 +5,7 @@ This project demonstrates the usage of the Mediator pattern, which falls under t
 
 ## Tools
 * C++14
-* g++9.3.0
+* CMake 3.16.3
 
 ## References
 * https://www.tutorialspoint.com/design_pattern/mediator_pattern.htm
